@@ -16,11 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     user.cpp \
     employee.cpp \
-    payrollspecialist.cpp
+    payrollspecialist.cpp \
+    bankinformation.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
-    payrollspecialist.h
+    payrollspecialist.h \
+    bankinformation.h
 
 FORMS    += mainwindow.ui
