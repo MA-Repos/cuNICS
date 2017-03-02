@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     bankinformation.cpp \
     date.cpp \
     phonenumber.cpp \
-    address.cpp
+    address.cpp \
+    salary.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -29,6 +30,7 @@ HEADERS  += mainwindow.h \
     bankinformation.h \
     date.h \
     phonenumber.h \
-    address.h
+    address.h \
+    salary.h
 
 FORMS    += mainwindow.ui
