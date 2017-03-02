@@ -57,6 +57,11 @@ string User::getLName()
     return lName;
 }
 
+string User::getFullName()
+{
+    return fName + " " + lName;
+}
+
 string User::getUsername()
 {
     return username;

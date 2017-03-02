@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     address.cpp \
     salary.cpp \
     status.cpp \
-    role.cpp
+    role.cpp \
+    paystub.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -36,6 +37,7 @@ HEADERS  += mainwindow.h \
     salary.h \
     status.h \
     constants.h \
-    role.h
+    role.h \
+    paystub.h
 
 FORMS    += mainwindow.ui

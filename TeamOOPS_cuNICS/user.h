@@ -26,9 +26,8 @@ public:
     //----- Getters -----
     string getFName();
     string getLName();
+    string getFullName();
     string getUsername();
-
-
 
 };
 
