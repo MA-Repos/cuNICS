@@ -8,6 +8,11 @@ User::User()
     User("None", "None", "None", "None");
 }
 
+User::User(string fName, string lName)
+{
+    User(fName, lName, "None", "None");
+}
+
 User::User(string fName, string lName, string username, string password)
 {
     this->fName = fName;
@@ -16,7 +21,12 @@ User::User(string fName, string lName, string username, string password)
     this->password = password;
 }
 
-//Setters
+User::~User()
+{
+
+}
+
+//----- Setters -----
 bool User::setFName(string fName)
 {
     this->fName = fName;
@@ -41,7 +51,7 @@ bool User::setPassword(string password)
     return true;
 }
 
-//Getters
+//----- Getters -----
 string User::getFName()
 {
     return fName;
@@ -50,6 +60,11 @@ string User::getFName()
 string User::getLName()
 {
     return lName;
+}
+
+string User::getFullName()
+{
+    return fName + " " + lName;
 }
 
 string User::getUsername()
