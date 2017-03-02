@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     payrollspecialist.cpp \
     bankinformation.cpp \
     date.cpp \
-    phonenumber.cpp
+    phonenumber.cpp \
+    address.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -27,6 +28,7 @@ HEADERS  += mainwindow.h \
     payrollspecialist.h \
     bankinformation.h \
     date.h \
-    phonenumber.h
+    phonenumber.h \
+    address.h
 
 FORMS    += mainwindow.ui
