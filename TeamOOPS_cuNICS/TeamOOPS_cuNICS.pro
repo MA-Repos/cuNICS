@@ -1,3 +1,4 @@
+#include <QSqlDatabase>
 #-------------------------------------------------
 #
 # Project created by QtCreator 2017-03-01T15:22:11
@@ -5,6 +6,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,11 +18,17 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     user.cpp \
     employee.cpp \
-    payrollspecialist.cpp
+    payrollspecialist.cpp \
+    employeedialog.cpp \
+    payrolldialog.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
-    payrollspecialist.h
+    payrollspecialist.h \
+    employeedialog.h \
+    payrolldialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    employeedialog.ui \
+    payrolldialog.ui
