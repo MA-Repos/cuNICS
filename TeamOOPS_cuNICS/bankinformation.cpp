@@ -15,7 +15,12 @@ BankInformation::BankInformation(int accountNumber, int bankNumber, int branchNu
     this->clientLName   = clientLName;
 }
 
-//Getters
+BankInformation::~BankInformation()
+{
+
+}
+
+//----- Getters -----
 int BankInformation::getAccountNumber()
 {
     return accountNumber;

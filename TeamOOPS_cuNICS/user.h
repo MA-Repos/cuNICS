@@ -15,14 +15,15 @@ protected:
 public:
     User();
     User(string fName, string lName, string username, string password);
+    ~User();
 
-    //Setters
+    //----- Setters -----
     bool setFName(string);
     bool setLName(string);
     bool setUsername(string);
     bool setPassword(string);
 
-    //Getters
+    //----- Getters -----
     string getFName();
     string getLName();
     string getUsername();

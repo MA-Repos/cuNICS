@@ -12,7 +12,12 @@ Date::Date(int day, int month, int year)
     this->month = month;
 }
 
-//Getters
+Date::~Date()
+{
+
+}
+
+//----- Getters -----
 int Date::getDay()
 {
     return day;

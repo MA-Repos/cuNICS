@@ -16,8 +16,9 @@ private:
 public:
     BankInformation();
     BankInformation(int accountNumber, int bankNumber, int branchNumber, string bankName, string clientFName, string clientLName);
+    ~BankInformation();
 
-    //Getters
+    //----- Getters -----
     int     getAccountNumber();
     int     getBankNumber();
     int     getBranchNumber();

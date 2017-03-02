@@ -16,7 +16,12 @@ User::User(string fName, string lName, string username, string password)
     this->password = password;
 }
 
-//Setters
+User::~User()
+{
+
+}
+
+//----- Setters -----
 bool User::setFName(string fName)
 {
     this->fName = fName;
@@ -41,7 +46,7 @@ bool User::setPassword(string password)
     return true;
 }
 
-//Getters
+//----- Getters -----
 string User::getFName()
 {
     return fName;

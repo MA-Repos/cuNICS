@@ -18,13 +18,15 @@ SOURCES += main.cpp\
     employee.cpp \
     payrollspecialist.cpp \
     bankinformation.cpp \
-    date.cpp
+    date.cpp \
+    phonenumber.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
     payrollspecialist.h \
     bankinformation.h \
-    date.h
+    date.h \
+    phonenumber.h
 
 FORMS    += mainwindow.ui
