@@ -2,6 +2,7 @@
 #define CONSTANTS
 
 enum RoleType {
+    NO_ROLE,
     TA,
     RA,
     FACULTY,

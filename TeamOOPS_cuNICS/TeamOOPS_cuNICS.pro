@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     phonenumber.cpp \
     address.cpp \
     salary.cpp \
-    status.cpp
+    status.cpp \
+    role.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -34,6 +35,7 @@ HEADERS  += mainwindow.h \
     address.h \
     salary.h \
     status.h \
-    constants.h
+    constants.h \
+    role.h
 
 FORMS    += mainwindow.ui
