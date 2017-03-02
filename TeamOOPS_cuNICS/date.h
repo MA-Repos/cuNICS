@@ -22,6 +22,8 @@ public:
     //----- Operators -----
     bool operator<(Date&) const;
     bool operator>(Date&) const;
+    bool operator<=(Date&) const;
+    bool operator>=(Date&) const;
     bool operator==(Date&) const;
 };
 

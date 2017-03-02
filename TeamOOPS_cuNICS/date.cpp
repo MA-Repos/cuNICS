@@ -55,8 +55,20 @@ bool Date::operator<(Date& d) const
 
 bool Date::operator>(Date& d) const
 {
-    return !(*this < d);
+    return !(*this <= d);
 }
+
+bool Date::operator<=(Date& d) const
+{
+    return (*this < d || *this == d);
+}
+
+bool Date::operator>=(Date& d) const
+{
+    return (*this > d || *this == d);
+}
+
+
 bool Date::operator==(Date& d) const
 {
     if (this->year == d.getYear() &&
