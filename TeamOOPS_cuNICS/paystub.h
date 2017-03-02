@@ -5,6 +5,8 @@
 #include "employee.h"
 #include <string>
 
+class Employee;
+
 class Paystub
 {
 private:

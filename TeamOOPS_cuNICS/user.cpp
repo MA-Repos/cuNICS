@@ -8,6 +8,11 @@ User::User()
     User("None", "None", "None", "None");
 }
 
+User::User(string fName, string lName)
+{
+    User(fName, lName, "None", "None");
+}
+
 User::User(string fName, string lName, string username, string password)
 {
     this->fName = fName;

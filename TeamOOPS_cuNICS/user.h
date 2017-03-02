@@ -14,6 +14,7 @@ protected:
 
 public:
     User();
+    User(string fName, string lName);
     User(string fName, string lName, string username, string password);
     ~User();
 
