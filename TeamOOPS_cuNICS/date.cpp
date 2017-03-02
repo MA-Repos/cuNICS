@@ -32,3 +32,37 @@ int Date::getYear()
 {
     return year;
 }
+
+//----- Operators -----
+bool Date::operator<(Date& d) const
+{
+    if (this->year < d.getYear()) {
+        return true;
+    }
+    else if (this->year == d.getYear() &&
+             this->month < d.getMonth()) {
+        return true;
+    }
+    else if (this->year == d.getYear() &&
+             this->month == d.getMonth() &&
+             this->day < d.getDay()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+bool Date::operator>(Date& d) const
+{
+    return !(*this < d);
+}
+bool Date::operator==(Date& d) const
+{
+    if (this->year == d.getYear() &&
+        this->month == d.getMonth() &&
+        this->day == d.getDay()) {
+        return true;
+    }
+    return false;
+}

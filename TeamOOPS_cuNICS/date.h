@@ -18,6 +18,11 @@ public:
     int getDay();
     int getMonth();
     int getYear();
+
+    //----- Operators -----
+    bool operator<(Date&) const;
+    bool operator>(Date&) const;
+    bool operator==(Date&) const;
 };
 
 #endif // DATE_H
