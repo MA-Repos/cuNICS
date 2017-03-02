@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,7 +25,9 @@ SOURCES += main.cpp\
     salary.cpp \
     status.cpp \
     role.cpp \
-    paystub.cpp
+    paystub.cpp \
+    editemployeeinfocontrol.cpp \
+    listemployeescontrol.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -38,6 +41,8 @@ HEADERS  += mainwindow.h \
     status.h \
     constants.h \
     role.h \
-    paystub.h
+    paystub.h \
+    editemployeeinfocontrol.h \
+    listemployeescontrol.h
 
 FORMS    += mainwindow.ui
