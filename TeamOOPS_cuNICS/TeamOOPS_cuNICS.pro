@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,11 +17,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     user.cpp \
     employee.cpp \
-    payrollspecialist.cpp
+    payrollspecialist.cpp \
+    editemployeeinfocontrol.cpp \
+    listemployeescontrol.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
-    payrollspecialist.h
+    payrollspecialist.h \
+    editemployeeinfocontrol.h \
+    listemployeescontrol.h
 
 FORMS    += mainwindow.ui
