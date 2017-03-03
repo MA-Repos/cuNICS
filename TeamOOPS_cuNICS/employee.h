@@ -2,11 +2,45 @@
 #define EMPLOYEE_H
 
 #include "user.h"
+#include "address.h"
+#include "role.h"
+#include "salary.h"
+#include "paystub.h"
+#include <qlist.h>
+
+class Paystub;
 
 class Employee : public User
 {
+private:
+    int                 employeeNumber;
+    Address*            address;
+    Role*               role;
+    Salary*             salary;
+    int                 sin;
+    QList<Paystub*>*    paystubs;
+
 public:
-    Employee();
+    Employee(string     fName,
+             string     lName,
+             int        employeeNumber,
+             Address*   address,
+             Role*      role,
+             Salary*    salary,
+             int        sin);
+    ~Employee();
+
+    //----- Getters -----
+    int         getEmployeeNumber();
+    Address*    getAddress();
+    Role*       getRole();
+    Salary*     getSalary();
+    int         getSIN();
+
+    Paystub*    getLastPaystub();
+    Paystub*    getPaystubAtIndex(int i);
+
+    bool        addPaystub(Paystub* newStub);
 };
 
 #endif // EMPLOYEE_H
