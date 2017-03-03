@@ -1,10 +1,11 @@
+#include <QSqlDatabase>
 #-------------------------------------------------
 #
 # Project created by QtCreator 2017-03-01T15:22:11
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -18,6 +19,8 @@ SOURCES += main.cpp\
     user.cpp \
     employee.cpp \
     payrollspecialist.cpp \
+    employeedialog.cpp \
+    payrolldialog.cpp \
     bankinformation.cpp \
     date.cpp \
     phonenumber.cpp \
@@ -27,12 +30,17 @@ SOURCES += main.cpp\
     role.cpp \
     paystub.cpp \
     editemployeeinfocontrol.cpp \
-    listemployeescontrol.cpp
+    listemployeescontrol.cpp \
+    payrollgenerationtool.cpp \
+    manageemployeesalarycontrol.cpp \
+    databasecontroller.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
     payrollspecialist.h \
+    employeedialog.h \
+    payrolldialog.h \
     bankinformation.h \
     date.h \
     phonenumber.h \
@@ -43,6 +51,16 @@ HEADERS  += mainwindow.h \
     role.h \
     paystub.h \
     editemployeeinfocontrol.h \
-    listemployeescontrol.h
+    listemployeescontrol.h \
+    payrollgenerationtool.h \
+    manageemployeesalarycontrol.h \
+    databasecontroller.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    employeedialog.ui \
+    payrolldialog.ui
+
+RESOURCES +=
+
+DISTFILES += \
+    _original.jpeg
