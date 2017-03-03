@@ -3,12 +3,14 @@
 #include "constants.h"
 #include "status.h"
 #include "date.h"
+#include <QMap>
 
 class Role
 {
 private:
     RoleType    roleType;
     Status*     status;
+
 public:
     Role();
     Role(RoleType roleType);
@@ -27,6 +29,8 @@ public:
     bool setRollTermFullTime(RoleType roleType, Date* startDate, Date* endDate);
     bool setRollContinuingPartTime(RoleType roleType, Date* startDate);
     bool setRollContinuingFullTime(RoleType roleType, Date* startDate);
+
+    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // ROLE_H

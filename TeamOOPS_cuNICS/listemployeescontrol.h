@@ -16,9 +16,9 @@ private:
 public:
     ListEmployeesControl(QSqlDatabase*);
     ~ListEmployeesControl();
-    int setFilter(User*);
-    int displayEmployeeList();
-
+    int  setFilter(User*);
+    int  displayEmployeeList();
+    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // LISTEMPLOYEESCONTROL_H

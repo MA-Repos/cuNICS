@@ -11,8 +11,11 @@ EditEmployeeInfoControl::EditEmployeeInfoControl(User*         employee,
 
 int EditEmployeeInfoControl::updateEmployeeInfo()
 {
-    NullCheckNeg1(db);
+    NullCheckNegOne(db);
+    string query = "UPDATE employee"
+                   "SET ";
 
+    //db->update();
     return 0;
 }
 
