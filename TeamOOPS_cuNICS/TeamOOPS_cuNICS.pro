@@ -20,15 +20,24 @@ SOURCES += main.cpp\
     employee.cpp \
     payrollspecialist.cpp \
     employeedialog.cpp \
-    payrolldialog.cpp
+    payrolldialog.cpp \
+    editemployeeinfocontrol.cpp \
+    listemployeescontrol.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
     payrollspecialist.h \
     employeedialog.h \
-    payrolldialog.h
+    payrolldialog.h \
+    editemployeeinfocontrol.h \
+    listemployeescontrol.h
 
 FORMS    += mainwindow.ui \
     employeedialog.ui \
     payrolldialog.ui
+
+RESOURCES +=
+
+DISTFILES += \
+    _original.jpeg

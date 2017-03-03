@@ -15,6 +15,9 @@ public:
     explicit payrollDialog(QWidget *parent = 0);
     ~payrollDialog();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::payrollDialog *ui;
 };
