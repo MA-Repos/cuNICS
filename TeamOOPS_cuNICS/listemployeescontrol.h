@@ -7,11 +7,13 @@ class ListEmployeesControl
 {
 
 private:
-    Employee* employees;
+    User** employees;
+    User* filter;
 
 public:
     ListEmployeesControl();
     ~ListEmployeesControl();
+    int getfilter(User*);
     int getAllEmployees();
     int DisplayEmployeeList();
 
