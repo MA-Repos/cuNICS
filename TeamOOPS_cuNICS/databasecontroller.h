@@ -7,8 +7,8 @@ class DatabaseController
 {
 public:
     DatabaseController();
-    void DisplayEmployees();
-
+    QSqlQuery QueryDatabase(QString q);
+    ~DatabaseController();
 
 private:
     QSqlDatabase db;
