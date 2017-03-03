@@ -9,7 +9,7 @@ PayrollGenerationTool::PayrollGenerationTool(QSqlDatabase* db)
 
 int PayrollGenerationTool::getAllEmployees()
 {
-    NullCheckNeg1(db);
+    NullCheckNegOne(db);
     this->employees = new QList<User*>;
 
     return 0;

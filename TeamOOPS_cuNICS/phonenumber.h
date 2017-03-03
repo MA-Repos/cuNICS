@@ -2,6 +2,7 @@
 #define PHONENUMBER_H
 
 #include <string>
+#include <QMap>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ private:
     int areaCode;
     int localNumber;
     int extension;
+
 public:
     PhoneNumber();
     PhoneNumber(int countryCode, int areaCode, int localNumber, int extension);
@@ -19,6 +21,8 @@ public:
 
     //----- Getters -----
     string getPhoneNumberAsString();
+
+    bool   toAttributeList(QMap<string, string>* list);
 };
 
 #endif // PHONENUMBER_H

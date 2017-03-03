@@ -14,7 +14,7 @@ int ListEmployeesControl::setFilter(User* filter)
 
 int ListEmployeesControl::getAllEmployees()
 {
-    NullCheckNeg1(db);
+    NullCheckNegOne(db);
 
     return 0;
 }
