@@ -15,7 +15,7 @@ class Employee : public User
 private:
     int                 employeeNumber;
     Address*            address;
-    Role*               role;
+    QList<Role*>*       roles;
     Salary*             salary;
     int                 sin;
     QList<Paystub*>*    paystubs;
@@ -25,21 +25,32 @@ public:
              string     lName,
              int        employeeNumber,
              Address*   address,
-             Role*      role,
              Salary*    salary,
              int        sin);
+
+    Employee(string             fName,
+             string             lName,
+             int                employeeNumber,
+             Address*           address,
+             Salary*            salary,
+             int                sin,
+             QList<Role*>*      roles,
+             QList<Paystub*>*   paystubs);
     ~Employee();
 
     //----- Getters -----
     int         getEmployeeNumber();
     Address*    getAddress();
-    Role*       getRole();
     Salary*     getSalary();
     int         getSIN();
 
+    int         getNumRoles();
+    Role*       getRoleAtIndex(int i);
+    bool        addRole(Role* newRole);
+
+    int         getNumStubs();
     Paystub*    getLastPaystub();
     Paystub*    getPaystubAtIndex(int i);
-
     bool        addPaystub(Paystub* newStub);
 };
 

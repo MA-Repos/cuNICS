@@ -4,17 +4,16 @@ Employee::Employee(string     fName,
                    string     lName,
                    int        employeeNumber,
                    Address*   address,
-                   Role*      role,
                    Salary*    salary,
                    int        sin) : User(fName, lName)
 {
     this->employeeNumber    = employeeNumber;
     this->address           = address;
-    this->role              = role;
     this->salary            = salary;
     this->sin               = sin;
 
     this->paystubs          = new QList<Paystub*>();
+    this->roles             = new QList<Role*>();
 }
 
 Employee::~Employee()
@@ -22,15 +21,18 @@ Employee::~Employee()
     if (address != NULL) {
         delete address;
     }
-    if (role != NULL) {
-        delete role;
-    }
     if (salary != NULL) {
         delete salary;
     }
     if (paystubs != NULL) {
         delete paystubs;
     }
+    while (roles->isEmpty() != true) {
+        Role* tempRole = roles->last();
+        roles->removeLast();
+        delete tempRole;
+    }
+    delete roles;
 }
 
 //----- Getters -----
@@ -44,11 +46,6 @@ Address* Employee::getAddress()
     return address;
 }
 
-Role* Employee::getRole()
-{
-    return role;
-}
-
 Salary* Employee::getSalary()
 {
     return salary;
@@ -57,6 +54,34 @@ Salary* Employee::getSalary()
 int Employee::getSIN()
 {
     return sin;
+}
+
+int Employee::getNumRoles()
+{
+    return roles->size();
+}
+
+Role* Employee::getRoleAtIndex(int i)
+{
+    if (i < 0 ||
+        i >= roles->size()) {
+        return NULL;
+    }
+    return roles->at(i);
+}
+
+bool Employee::addRole(Role* newRole)
+{
+    if (newRole != NULL) {
+        roles->append(newRole);
+        return true;
+    }
+    return false;
+}
+
+int Employee::getNumStubs()
+{
+    return paystubs->size();
 }
 
 Paystub* Employee::getLastPaystub()
@@ -78,7 +103,7 @@ Paystub* Employee::getPaystubAtIndex(int i)
 
 bool Employee::addPaystub(Paystub *newStub)
 {
-    if (newStub != 0) {
+    if (newStub != NULL) {
         paystubs->append(newStub);
         return true;
     }
