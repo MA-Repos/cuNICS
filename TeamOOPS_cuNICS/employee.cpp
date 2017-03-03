@@ -16,6 +16,24 @@ Employee::Employee(string     fName,
     this->roles             = new QList<Role*>();
 }
 
+Employee::Employee(string     fName,
+                   string     lName,
+                   int        employeeNumber,
+                   Address*   address,
+                   Salary*    salary,
+                   int        sin,
+                   QList<Role*>*      roles,
+                   QList<Paystub*>*   paystubs) : User(fName, lName)
+{
+    this->employeeNumber    = employeeNumber;
+    this->address           = address;
+    this->salary            = salary;
+    this->sin               = sin;
+
+    this->paystubs          = paystubs;
+    this->roles             = roles;
+}
+
 Employee::~Employee()
 {
     if (address != NULL) {

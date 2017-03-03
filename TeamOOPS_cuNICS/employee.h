@@ -44,10 +44,12 @@ public:
     Salary*     getSalary();
     int         getSIN();
 
+    //----- Role Methods -----
     int         getNumRoles();
     Role*       getRoleAtIndex(int i);
     bool        addRole(Role* newRole);
 
+    //----- Paystub Methods -----
     int         getNumStubs();
     Paystub*    getLastPaystub();
     Paystub*    getPaystubAtIndex(int i);
