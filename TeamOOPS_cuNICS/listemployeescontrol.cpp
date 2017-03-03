@@ -1,18 +1,26 @@
 #include "listemployeescontrol.h"
+#include "constants.h"
 
-ListEmployeesControl::ListEmployeesControl()
+ListEmployeesControl::ListEmployeesControl(QSqlDatabase* db)
 {
+    this->db = db;
     this->employees = NULL;
 }
 
-int ListEmployeesControl::getAllEmployees() {
+int ListEmployeesControl::setFilter(User* filter)
+{
+    this->filter = filter;
+}
 
-    //this->employees
+int ListEmployeesControl::getAllEmployees()
+{
+    NullCheckNeg1(db);
+
     return 0;
 }
 
-int ::ListEmployeesControl::DisplayEmployeeList(){
-
+int ::ListEmployeesControl::displayEmployeeList()
+{
     return 0;
 }
 

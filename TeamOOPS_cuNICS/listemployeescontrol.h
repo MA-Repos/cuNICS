@@ -2,6 +2,7 @@
 #define LISTEMPLOYEESCONTROL_H
 
 #include "employee.h"
+#include <QSqlDatabase>
 
 class ListEmployeesControl
 {
@@ -9,13 +10,14 @@ class ListEmployeesControl
 private:
     User** employees;
     User* filter;
+    QSqlDatabase* db;
+    int getAllEmployees();
 
 public:
-    ListEmployeesControl();
+    ListEmployeesControl(QSqlDatabase*);
     ~ListEmployeesControl();
-    int getfilter(User*);
-    int getAllEmployees();
-    int DisplayEmployeeList();
+    int setFilter(User*);
+    int displayEmployeeList();
 
 };
 
