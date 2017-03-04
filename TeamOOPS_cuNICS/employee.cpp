@@ -62,6 +62,8 @@ int Employee::getSIN()
     return sin;
 }
 
+//----- Role Methods -----
+
 int Employee::getNumRoles()
 {
     return roles->size();
@@ -84,6 +86,8 @@ bool Employee::addRole(Role* newRole)
     }
     return false;
 }
+
+//----- Paystub Methods -----
 
 int Employee::getNumStubs()
 {

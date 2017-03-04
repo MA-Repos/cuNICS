@@ -13,18 +13,18 @@ private:
     Date*       date;
     float       grossIncome;
     float       netIncome;
-    float       deductions;
+    float       taxDeductions;
     float       yearToDateGrossIncome;
     float       yearToDateNetIncome;
-    float       yearToDateDeductions;
+    float       yearToDateTaxDeductions;
     Employee*   employee;
 
 public:
     Paystub(Date*       date,
             float       grossIncome,
-            float       deductions,
+            float       taxDeductions,
             float       yearToDateGrossIncome,
-            float       yearToDateDeductions,
+            float       yearToDatetaxDeductions,
             Employee*   employee);
     ~Paystub();
 
@@ -32,10 +32,10 @@ public:
     Date*   getDate();
     float   getGrossIncome();
     float   getNetIncome();
-    float   getDeductions();
+    float   getTaxDeductions();
     float   getYTDGrossIncome();
     float   getYTDNetIncome();
-    float   getYTDDeductions();
+    float   getYTDTaxDeductions();
     string  getEmployeeName();
     int     getEmployeeID();
 };
