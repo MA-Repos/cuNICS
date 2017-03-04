@@ -4,6 +4,7 @@
 #include "date.h"
 #include "employee.h"
 #include <string>
+#include <QMap>
 
 class Employee;
 
@@ -38,6 +39,8 @@ public:
     float   getYTDTaxDeductions();
     string  getEmployeeName();
     int     getEmployeeID();
+
+    bool    toAttributeList(QMap<string, string>* list);
 };
 
 #endif // PAYSTUB_H

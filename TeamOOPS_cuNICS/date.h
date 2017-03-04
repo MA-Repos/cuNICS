@@ -1,6 +1,10 @@
 #ifndef DATE_H
 #define DATE_H
 
+#include <string>
+#include <QMap>
+
+using namespace std;
 
 class Date
 {
@@ -25,6 +29,8 @@ public:
     bool operator<=(Date&) const;
     bool operator>=(Date&) const;
     bool operator==(Date&) const;
+
+    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // DATE_H

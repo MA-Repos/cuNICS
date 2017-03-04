@@ -6,6 +6,7 @@
 #include "role.h"
 #include "paystub.h"
 #include <qlist.h>
+#include <QMap>
 
 class Paystub;
 
@@ -49,6 +50,7 @@ public:
     Paystub*    getLastPaystub();
     Paystub*    getPaystubAtIndex(int i);
     bool        addPaystub(Paystub* newStub);
+    bool        toAttributeList(QMap<string, string>* list);
 };
 
 #endif // EMPLOYEE_H
