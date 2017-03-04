@@ -24,6 +24,8 @@ private slots:
 
     void on_lineEdit_returnPressed();
 
+    void on_PRGT_button_2_clicked();
+
 private:
     Ui::payrollDialog *ui;
 

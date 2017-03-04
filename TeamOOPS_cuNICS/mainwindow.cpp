@@ -21,7 +21,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_logi_button_clicked()
 {
 
     QString username,password;
@@ -40,7 +40,7 @@ void MainWindow::on_pushButton_clicked()
     User* employee = NULL;
     if(username=="employee" && password == "1234"){
         hide();
-         ui->label_message->setText("You a hoe!!");
+         //ui->label_message->setText("You a hoe!!");
          EmployeeDialog empDialog;
          empDialog.setModal(true);
          empDialog.exec();

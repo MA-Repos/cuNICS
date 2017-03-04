@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_logi_button_clicked();
 
     void on_textBrowser_textChanged();
 

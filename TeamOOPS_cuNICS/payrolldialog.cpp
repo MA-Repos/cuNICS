@@ -1,6 +1,7 @@
 #include "payrolldialog.h"
 #include "ui_payrolldialog.h"
 #include "listemployeescontrol.h"
+#include "payrollgentool.h"
 #include <qlist.h>
 
 #include <string>
@@ -29,12 +30,17 @@ void payrollDialog::on_listemployees_button_clicked()
  //QList<Employee*>* employees;
 // employees =   listemp->displayEmployeeList();
 
-    for(int i =0; i <9; i++){
-        //ui->
-    }
+
 }
 
 void payrollDialog::on_lineEdit_returnPressed()
 {
      QMessageBox::warning(this,"Login","Username or password is incorrect");
+}
+
+void payrollDialog::on_PRGT_button_2_clicked()
+{
+    PayrollGenTool* payDialog = new PayrollGenTool();
+    payDialog->setModal(true);
+    payDialog->exec();
 }
