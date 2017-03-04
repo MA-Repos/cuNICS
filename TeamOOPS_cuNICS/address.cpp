@@ -101,4 +101,6 @@ bool Address::toAttributeList(QMap<string, string>* list)
     list->insert("City",         this->getCity());
     list->insert("Country",      this->getCountry());
     list->insert("PostalCode",   this->getPostalCode());
+
+    return true;
 }

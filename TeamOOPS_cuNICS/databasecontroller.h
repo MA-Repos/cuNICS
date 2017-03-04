@@ -7,8 +7,10 @@ class DatabaseController
 {
 public:
     DatabaseController();
+
     QSqlQuery QueryDatabaseWithResult(QString q);
     void QueryDatabaseWithoutResult(QString q);
+
 
     ~DatabaseController();
 

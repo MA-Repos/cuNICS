@@ -14,13 +14,16 @@ DatabaseController::DatabaseController(){
     }
 }
 
+
 QSqlQuery DatabaseController::QueryDatabaseWithResult(QString q){
+
 
     QSqlQuery query;
     query.exec(q);
 
     return query;
 }
+
 void DatabaseController::QueryDatabaseWithoutResult(QString q){
 
     QSqlQuery query;
