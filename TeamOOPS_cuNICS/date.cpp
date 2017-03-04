@@ -81,8 +81,10 @@ bool Date::operator==(Date& d) const
 
 bool Date::toAttributeList(QMap<string, string>* list)
 {
-    list->insert("Year",  numberToString(this->getYear()));
-    list->insert("Month", numberToString(this->getMonth()));
-    list->insert("Day",   numberToString(this->getDay()));
+    list->insert("Year",  varToString(this->getYear()));
+    list->insert("Month", varToString(this->getMonth()));
+    list->insert("Day",   varToString(this->getDay()));
+
+    return true;
 }
 

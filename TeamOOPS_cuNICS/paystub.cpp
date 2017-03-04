@@ -71,3 +71,18 @@ int Paystub::getEmployeeID()
     //TODO: Implement
     return 0;
 }
+
+bool Paystub::toAttributeList(QMap<string, string>* list)
+{
+    list->insert("Date",           varToString(this->getDate())); //TODO: date->printDate()
+    list->insert("GrossIncome",    varToString(this->getGrossIncome()));
+    list->insert("NetIncome",      varToString(this->getNetIncome()));
+    list->insert("Deductions",     varToString(this->getDeductions()));
+    list->insert("YTDGrossIncome", varToString(this->getYTDGrossIncome()));
+    list->insert("YTDNetIncome",   varToString(this->getYTDNetIncome()));
+    list->insert("YTDDeductions",  varToString(this->getYTDDeductions()));
+    list->insert("YTDEmployeeID",  varToString(this->getEmployeeID()));
+
+    return true;
+}
+

@@ -18,10 +18,10 @@ using namespace std;
 #define NullCheckNull(var)    NullCheck(var, NULL)
 
 template <typename T>
-string numberToString ( T Number )
+string varToString ( T var )
 {
     stringstream ss;
-    ss << Number;
+    ss << var;
     return ss.str();
 }
 

@@ -84,3 +84,13 @@ bool Employee::addPaystub(Paystub *newStub)
     }
     return false;
 }
+
+bool Employee::toAttributeList(QMap<string, string>* list)
+{
+    list->insert("EmployeeNumber",  varToString(this->getEmployeeNumber()));
+    list->insert("FirstName",       varToString(this->getFName()));
+    list->insert("LastName",        varToString(this->getLName()));
+    //...
+
+    return true;
+}

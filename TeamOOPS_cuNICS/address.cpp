@@ -96,11 +96,11 @@ string Address::getPostalCode()
 
 bool Address::toAttributeList(QMap<string, string>* list)
 {
-    list->insert("Street",       this->getStreet());
-    list->insert("StreetNumber", numberToString(this->getStreetNumber()));
-    list->insert("City",         this->getCity());
-    list->insert("Country",      this->getCountry());
-    list->insert("PostalCode",   this->getPostalCode());
+    list->insert("Street",       varToString(this->getStreet()));
+    list->insert("StreetNumber", varToString(this->getStreetNumber()));
+    list->insert("City",         varToString(this->getCity()));
+    list->insert("Country",      varToString(this->getCountry()));
+    list->insert("PostalCode",   varToString(this->getPostalCode()));
 
     return true;
 }

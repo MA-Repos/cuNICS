@@ -1,4 +1,5 @@
 #include "bankinformation.h"
+#include "constants.h"
 
 BankInformation::BankInformation()
 {
@@ -44,4 +45,16 @@ string BankInformation::getBankName()
 string BankInformation::getClientName()
 {
     return clientFName + " " + clientLName;
+}
+
+bool BankInformation::toAttributeList(QMap<string, string>* list)
+{
+    list->insert("AccountNumber",   varToString(this->getAccountNumber()));
+    list->insert("BankNumber",      varToString(this->getBankNumber()));
+    list->insert("BranchNumber",    varToString(this->getBranchNumber()));
+    list->insert("BankName",        varToString(this->getBankName()));
+    list->insert("ClientFirstName", varToString(this->clientFName));
+    list->insert("ClientLastName",  varToString(this->clientLName));
+
+    return true;
 }
