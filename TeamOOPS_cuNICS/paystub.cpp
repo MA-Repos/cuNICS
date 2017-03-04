@@ -5,7 +5,7 @@ Paystub::Paystub(Date*       payDate,
                  float       taxDeductions,
                  float       yearToDateGrossIncome,
                  float       yearToDateTaxDeductions,
-                 User *employee)
+                 Employee*   employee)
 {
     this->payDate                   = payDate;
     this->grossIncome               = grossIncome;

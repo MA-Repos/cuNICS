@@ -18,7 +18,7 @@ private:
     float       yearToDateGrossIncome;
     float       yearToDateNetIncome;
     float       yearToDateTaxDeductions;
-    User*       employee;
+    Employee*   employee;
 
 public:
     Paystub(Date*       payDate,
@@ -26,7 +26,7 @@ public:
             float       taxDeductions,
             float       yearToDateGrossIncome,
             float       yearToDatetaxDeductions,
-            User*       employee);
+            Employee*   employee);
     ~Paystub();
 
     //----- Getters -----
