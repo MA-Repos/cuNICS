@@ -33,7 +33,11 @@ SOURCES += main.cpp\
     listemployeescontrol.cpp \
     payrollgenerationtool.cpp \
     manageemployeesalarycontrol.cpp \
+<<<<<<< HEAD
     databasecontroller.cpp
+=======
+    employeeinfo.cpp
+>>>>>>> ee92973a5865ec71452e914e4022972ff93e1db3
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -54,11 +58,16 @@ HEADERS  += mainwindow.h \
     listemployeescontrol.h \
     payrollgenerationtool.h \
     manageemployeesalarycontrol.h \
+<<<<<<< HEAD
     databasecontroller.h
+=======
+    employeeinfo.h
+>>>>>>> ee92973a5865ec71452e914e4022972ff93e1db3
 
 FORMS    += mainwindow.ui \
     employeedialog.ui \
-    payrolldialog.ui
+    payrolldialog.ui \
+    employeeinfo.ui
 
 RESOURCES +=
 
