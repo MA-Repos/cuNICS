@@ -1,6 +1,6 @@
 #include "applysalarydeductioncontrol.h"
 
-ApplySalaryDeductionControl::ApplySalaryDeductionControl(Employee *employee)
+ApplySalaryDeductionControl::ApplySalaryDeductionControl(User *employee)
 {
     this->employee = employee;
 }

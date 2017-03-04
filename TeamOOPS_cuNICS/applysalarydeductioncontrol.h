@@ -14,7 +14,7 @@ private:
     bool notifyUserSuccess();
 
 public:
-    ApplySalaryDeductionControl(Employee* employee);
+    ApplySalaryDeductionControl(User* employee);
     ~ApplySalaryDeductionControl();
 
     bool setDeductionPercentage(float deduction);
