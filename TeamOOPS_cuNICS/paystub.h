@@ -11,32 +11,32 @@ class Employee;
 class Paystub
 {
 private:
-    Date*       date;
+    Date*       payDate;
     float       grossIncome;
     float       netIncome;
-    float       deductions;
+    float       taxDeductions;
     float       yearToDateGrossIncome;
     float       yearToDateNetIncome;
-    float       yearToDateDeductions;
-    Employee*   employee;
+    float       yearToDateTaxDeductions;
+    User*       employee;
 
 public:
-    Paystub(Date*       date,
+    Paystub(Date*       payDate,
             float       grossIncome,
-            float       deductions,
+            float       taxDeductions,
             float       yearToDateGrossIncome,
-            float       yearToDateDeductions,
-            Employee*   employee);
+            float       yearToDatetaxDeductions,
+            User*       employee);
     ~Paystub();
 
     //----- Getters -----
-    Date*   getDate();
+    Date*   getPayDate();
     float   getGrossIncome();
     float   getNetIncome();
-    float   getDeductions();
+    float   getTaxDeductions();
     float   getYTDGrossIncome();
     float   getYTDNetIncome();
-    float   getYTDDeductions();
+    float   getYTDTaxDeductions();
     string  getEmployeeName();
     int     getEmployeeID();
 

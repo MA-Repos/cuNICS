@@ -28,8 +28,10 @@ SOURCES += main.cpp\
     paystub.cpp \
     editemployeeinfocontrol.cpp \
     listemployeescontrol.cpp \
+    applysalarydeductioncontrol.cpp \
     payrollgenerationtool.cpp \
     manageemployeesalarycontrol.cpp
+
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -46,6 +48,7 @@ HEADERS  += mainwindow.h \
     paystub.h \
     editemployeeinfocontrol.h \
     listemployeescontrol.h \
+    applysalarydeductioncontrol.h \
     payrollgenerationtool.h \
     manageemployeesalarycontrol.h
 
