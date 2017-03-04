@@ -1,6 +1,30 @@
 #ifndef CONSTANTS
 #define CONSTANTS
 
+#include <QDebug>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+#define NullCheck(var, ret) \
+    if (var==NULL) { \
+        qDebug() << "Parameter " << #var << " is NULL"; \
+        return ret; \
+    }
+
+#define NullCheckNegOne(var)  NullCheck(var, -1);
+#define NullCheckFalse(var)   NullCheck(var, false)
+#define NullCheckNull(var)    NullCheck(var, NULL)
+
+template <typename T>
+string numberToString ( T Number )
+{
+    stringstream ss;
+    ss << Number;
+    return ss.str();
+}
+
 enum RoleType {
     NO_ROLE,
     TA,
