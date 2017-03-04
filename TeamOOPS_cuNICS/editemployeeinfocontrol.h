@@ -10,13 +10,13 @@ class EditEmployeeInfoControl
 
 private:
     User* employee;
-    QSqlDatabase dbcontrol;
+    QSqlDatabase* db;
+    int notifySuccess();
 
 public:
-    EditEmployeeInfoControl(User*);
+    EditEmployeeInfoControl(User*, QSqlDatabase*);
     ~EditEmployeeInfoControl();
     int updateEmployeeInfo();
-    int notifySuccess();
 };
 
 #endif // EDITEMPLOYEEINFOCONTROL_H
