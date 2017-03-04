@@ -6,6 +6,9 @@
 
 #include <QMessageBox>
 
+#include <QSqlDatabase>
+#include <QSqlQuery>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,6 +23,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+
     QString username,password;
     username=ui->lineEdit_username->text();
     password=ui->lineEdit_password->text();
@@ -56,5 +60,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_textBrowser_textChanged()
 {
+
 
 }

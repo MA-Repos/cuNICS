@@ -2,7 +2,10 @@
 #include "constants.h"
 
 // parameters need motifying
-ManageEmployeeSalaryControl::ManageEmployeeSalaryControl(Role* role, float amount, float percentage, QSqlDatabase* db)
+ManageEmployeeSalaryControl::ManageEmployeeSalaryControl(Role*         role,
+                                                         float         amount,
+                                                         float         percentage,
+                                                         QSqlDatabase* db)
 {
     this->role = role;
     this->amount = amount;
@@ -12,15 +15,15 @@ ManageEmployeeSalaryControl::ManageEmployeeSalaryControl(Role* role, float amoun
 
 int ManageEmployeeSalaryControl::getEmployeesByRole()
 {
-    NullCheckNeg1(db);
-    NullCheckNeg1(role);
+    NullCheckNegOne(db);
+    NullCheckNegOne(role);
 
     return 0;
 }
 
 int ManageEmployeeSalaryControl::saveEmployees()
 {
-    NullCheckNeg1(db);
+    NullCheckNegOne(db);
 
     return 0;
 }
