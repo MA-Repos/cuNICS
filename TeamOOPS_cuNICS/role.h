@@ -3,16 +3,19 @@
 #include "constants.h"
 #include "status.h"
 #include "date.h"
+#include "salary.h"
 
 class Role
 {
 private:
     RoleType    roleType;
     Status*     status;
+    Salary*     salary;
+
 public:
     Role();
     Role(RoleType roleType);
-    Role(RoleType roleType, Status* status);
+    Role(RoleType roleType, Status* status, Salary* salary);
     ~Role();
 
     //----- Getters -----
@@ -22,6 +25,7 @@ public:
     //----- Setters -----
     bool setRoleType(RoleType roleType);
     bool setStatus(Status* status);
+    bool setSalary(Salary* salary);
 
     bool setRollTermPartTime(RoleType roleType, Date* startDate, Date* endDate);
     bool setRollTermFullTime(RoleType roleType, Date* startDate, Date* endDate);

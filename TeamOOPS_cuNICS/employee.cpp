@@ -4,12 +4,10 @@ Employee::Employee(string     fName,
                    string     lName,
                    int        employeeNumber,
                    Address*   address,
-                   Salary*    salary,
                    int        sin) : User(fName, lName)
 {
     this->employeeNumber    = employeeNumber;
     this->address           = address;
-    this->salary            = salary;
     this->sin               = sin;
 
     this->paystubs          = new QList<Paystub*>();
@@ -20,14 +18,12 @@ Employee::Employee(string     fName,
                    string     lName,
                    int        employeeNumber,
                    Address*   address,
-                   Salary*    salary,
                    int        sin,
                    QList<Role*>*      roles,
                    QList<Paystub*>*   paystubs) : User(fName, lName)
 {
     this->employeeNumber    = employeeNumber;
     this->address           = address;
-    this->salary            = salary;
     this->sin               = sin;
 
     this->paystubs          = paystubs;
@@ -38,9 +34,6 @@ Employee::~Employee()
 {
     if (address != NULL) {
         delete address;
-    }
-    if (salary != NULL) {
-        delete salary;
     }
     if (paystubs != NULL) {
         delete paystubs;
@@ -62,11 +55,6 @@ int Employee::getEmployeeNumber()
 Address* Employee::getAddress()
 {
     return address;
-}
-
-Salary* Employee::getSalary()
-{
-    return salary;
 }
 
 int Employee::getSIN()

@@ -4,7 +4,6 @@
 #include "user.h"
 #include "address.h"
 #include "role.h"
-#include "salary.h"
 #include "paystub.h"
 #include <qlist.h>
 
@@ -16,7 +15,6 @@ private:
     int                 employeeNumber;
     Address*            address;
     QList<Role*>*       roles;
-    Salary*             salary;
     int                 sin;
     QList<Paystub*>*    paystubs;
 
@@ -25,14 +23,12 @@ public:
              string     lName,
              int        employeeNumber,
              Address*   address,
-             Salary*    salary,
              int        sin);
 
     Employee(string             fName,
              string             lName,
              int                employeeNumber,
              Address*           address,
-             Salary*            salary,
              int                sin,
              QList<Role*>*      roles,
              QList<Paystub*>*   paystubs);
@@ -41,7 +37,6 @@ public:
     //----- Getters -----
     int         getEmployeeNumber();
     Address*    getAddress();
-    Salary*     getSalary();
     int         getSIN();
 
     //----- Role Methods -----
