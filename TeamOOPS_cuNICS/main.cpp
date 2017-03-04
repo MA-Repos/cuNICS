@@ -23,7 +23,7 @@ void TestingDatabase(){
     QString q = "SELECT * FROM employee;";
     DatabaseController dbControl = DatabaseController();
 
-    QSqlQuery query = dbControl.QueryDatabase(q);
+    QSqlQuery query = dbControl.QueryDatabaseWithResult(q);
     while (query.next()) {
         int id = query.value(0).toInt();
         QString username = query.value(1).toString();
@@ -32,7 +32,5 @@ void TestingDatabase(){
 
         qDebug() << id << username<< password<< name;
     }
-
-
 }
 

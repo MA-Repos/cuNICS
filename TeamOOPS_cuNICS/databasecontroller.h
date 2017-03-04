@@ -7,7 +7,9 @@ class DatabaseController
 {
 public:
     DatabaseController();
-    QSqlQuery QueryDatabase(QString q);
+    QSqlQuery QueryDatabaseWithResult(QString q);
+    void QueryDatabaseWithoutResult(QString q);
+
     ~DatabaseController();
 
 private:
