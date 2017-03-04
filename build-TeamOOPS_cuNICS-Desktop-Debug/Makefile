@@ -218,7 +218,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h ui_employeeinfo.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../TeamOOPS_cuNICS/TeamOOPS_cuNICS.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -364,7 +364,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../TeamOOPS_cuNICS/mainwindow.h ../TeamOOPS_cuNICS/user.h ../TeamOOPS_cuNICS/employee.h ../TeamOOPS_cuNICS/payrollspecialist.h ../TeamOOPS_cuNICS/employeedialog.h ../TeamOOPS_cuNICS/payrolldialog.h ../TeamOOPS_cuNICS/bankinformation.h ../TeamOOPS_cuNICS/date.h ../TeamOOPS_cuNICS/phonenumber.h ../TeamOOPS_cuNICS/address.h ../TeamOOPS_cuNICS/salary.h ../TeamOOPS_cuNICS/status.h ../TeamOOPS_cuNICS/constants.h ../TeamOOPS_cuNICS/role.h ../TeamOOPS_cuNICS/paystub.h ../TeamOOPS_cuNICS/editemployeeinfocontrol.h ../TeamOOPS_cuNICS/listemployeescontrol.h ../TeamOOPS_cuNICS/payrollgenerationtool.h ../TeamOOPS_cuNICS/manageemployeesalarycontrol.h ../TeamOOPS_cuNICS/databasecontroller.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../TeamOOPS_cuNICS/main.cpp ../TeamOOPS_cuNICS/mainwindow.cpp ../TeamOOPS_cuNICS/user.cpp ../TeamOOPS_cuNICS/employee.cpp ../TeamOOPS_cuNICS/payrollspecialist.cpp ../TeamOOPS_cuNICS/employeedialog.cpp ../TeamOOPS_cuNICS/payrolldialog.cpp ../TeamOOPS_cuNICS/bankinformation.cpp ../TeamOOPS_cuNICS/date.cpp ../TeamOOPS_cuNICS/phonenumber.cpp ../TeamOOPS_cuNICS/address.cpp ../TeamOOPS_cuNICS/salary.cpp ../TeamOOPS_cuNICS/status.cpp ../TeamOOPS_cuNICS/role.cpp ../TeamOOPS_cuNICS/paystub.cpp ../TeamOOPS_cuNICS/editemployeeinfocontrol.cpp ../TeamOOPS_cuNICS/listemployeescontrol.cpp ../TeamOOPS_cuNICS/payrollgenerationtool.cpp ../TeamOOPS_cuNICS/manageemployeesalarycontrol.cpp ../TeamOOPS_cuNICS/databasecontroller.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TeamOOPS_cuNICS/mainwindow.ui ../TeamOOPS_cuNICS/employeedialog.ui ../TeamOOPS_cuNICS/payrolldialog.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TeamOOPS_cuNICS/mainwindow.ui ../TeamOOPS_cuNICS/employeedialog.ui ../TeamOOPS_cuNICS/payrolldialog.ui ../TeamOOPS_cuNICS/employeeinfo.ui $(DISTDIR)/
 
 
 clean:compiler_clean 
@@ -396,14 +396,15 @@ moc_mainwindow.cpp: ../TeamOOPS_cuNICS/mainwindow.h
 moc_employeedialog.cpp: ../TeamOOPS_cuNICS/employeedialog.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/cu/Desktop/MirBranch/TeamOOPS-cuNICS/TeamOOPS_cuNICS -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TeamOOPS_cuNICS/employeedialog.h -o moc_employeedialog.cpp
 
-moc_payrolldialog.cpp: ../TeamOOPS_cuNICS/payrolldialog.h
+moc_payrolldialog.cpp: ../TeamOOPS_cuNICS/user.h \
+		../TeamOOPS_cuNICS/payrolldialog.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/cu/Desktop/MirBranch/TeamOOPS-cuNICS/TeamOOPS_cuNICS -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TeamOOPS_cuNICS/payrolldialog.h -o moc_payrolldialog.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h
+compiler_uic_make_all: ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h ui_employeeinfo.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h
+	-$(DEL_FILE) ui_mainwindow.h ui_employeedialog.h ui_payrolldialog.h ui_employeeinfo.h
 ui_mainwindow.h: ../TeamOOPS_cuNICS/mainwindow.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../TeamOOPS_cuNICS/mainwindow.ui -o ui_mainwindow.h
 
@@ -412,6 +413,9 @@ ui_employeedialog.h: ../TeamOOPS_cuNICS/employeedialog.ui
 
 ui_payrolldialog.h: ../TeamOOPS_cuNICS/payrolldialog.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../TeamOOPS_cuNICS/payrolldialog.ui -o ui_payrolldialog.h
+
+ui_employeeinfo.h: ../TeamOOPS_cuNICS/employeeinfo.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../TeamOOPS_cuNICS/employeeinfo.ui -o ui_employeeinfo.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -423,13 +427,15 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-main.o: ../TeamOOPS_cuNICS/main.cpp ../TeamOOPS_cuNICS/mainwindow.h
+main.o: ../TeamOOPS_cuNICS/main.cpp ../TeamOOPS_cuNICS/mainwindow.h \
+		../TeamOOPS_cuNICS/databasecontroller.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TeamOOPS_cuNICS/main.cpp
 
 mainwindow.o: ../TeamOOPS_cuNICS/mainwindow.cpp ../TeamOOPS_cuNICS/mainwindow.h \
 		ui_mainwindow.h \
 		../TeamOOPS_cuNICS/employeedialog.h \
-		../TeamOOPS_cuNICS/payrolldialog.h
+		../TeamOOPS_cuNICS/payrolldialog.h \
+		../TeamOOPS_cuNICS/user.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TeamOOPS_cuNICS/mainwindow.cpp
 
 user.o: ../TeamOOPS_cuNICS/user.cpp ../TeamOOPS_cuNICS/user.h
@@ -455,10 +461,10 @@ employeedialog.o: ../TeamOOPS_cuNICS/employeedialog.cpp ../TeamOOPS_cuNICS/emplo
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o employeedialog.o ../TeamOOPS_cuNICS/employeedialog.cpp
 
 payrolldialog.o: ../TeamOOPS_cuNICS/payrolldialog.cpp ../TeamOOPS_cuNICS/payrolldialog.h \
+		../TeamOOPS_cuNICS/user.h \
 		ui_payrolldialog.h \
 		../TeamOOPS_cuNICS/listemployeescontrol.h \
 		../TeamOOPS_cuNICS/employee.h \
-		../TeamOOPS_cuNICS/user.h \
 		../TeamOOPS_cuNICS/address.h \
 		../TeamOOPS_cuNICS/role.h \
 		../TeamOOPS_cuNICS/constants.h \
@@ -471,13 +477,15 @@ payrolldialog.o: ../TeamOOPS_cuNICS/payrolldialog.cpp ../TeamOOPS_cuNICS/payroll
 bankinformation.o: ../TeamOOPS_cuNICS/bankinformation.cpp ../TeamOOPS_cuNICS/bankinformation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bankinformation.o ../TeamOOPS_cuNICS/bankinformation.cpp
 
-date.o: ../TeamOOPS_cuNICS/date.cpp ../TeamOOPS_cuNICS/date.h
+date.o: ../TeamOOPS_cuNICS/date.cpp ../TeamOOPS_cuNICS/date.h \
+		../TeamOOPS_cuNICS/constants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o date.o ../TeamOOPS_cuNICS/date.cpp
 
 phonenumber.o: ../TeamOOPS_cuNICS/phonenumber.cpp ../TeamOOPS_cuNICS/phonenumber.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o phonenumber.o ../TeamOOPS_cuNICS/phonenumber.cpp
 
-address.o: ../TeamOOPS_cuNICS/address.cpp ../TeamOOPS_cuNICS/address.h
+address.o: ../TeamOOPS_cuNICS/address.cpp ../TeamOOPS_cuNICS/address.h \
+		../TeamOOPS_cuNICS/constants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o address.o ../TeamOOPS_cuNICS/address.cpp
 
 salary.o: ../TeamOOPS_cuNICS/salary.cpp ../TeamOOPS_cuNICS/salary.h

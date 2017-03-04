@@ -23,10 +23,7 @@ payrollDialog::~payrollDialog()
     delete ps;
 }
 
-<<<<<<< HEAD
-void payrollDialog::on_pushButton_clicked(){
 
-=======
 void payrollDialog::on_listemployees_button_clicked()
 {
  //ListEmployeesControl* listemp;
@@ -41,5 +38,4 @@ void payrollDialog::on_listemployees_button_clicked()
 void payrollDialog::on_lineEdit_returnPressed()
 {
      QMessageBox::warning(this,"Login","Username or password is incorrect");
->>>>>>> ee92973a5865ec71452e914e4022972ff93e1db3
 }

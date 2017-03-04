@@ -28,7 +28,7 @@ public:
     {
         if (EmployeeDialog->objectName().isEmpty())
             EmployeeDialog->setObjectName(QStringLiteral("EmployeeDialog"));
-        EmployeeDialog->resize(400, 300);
+        EmployeeDialog->resize(568, 411);
         label = new QLabel(EmployeeDialog);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(110, 30, 151, 17));

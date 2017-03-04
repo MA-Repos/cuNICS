@@ -17,41 +17,58 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_payrollDialog
 {
 public:
-    QLabel *label_2;
+    QLabel *title;
     QLabel *fullname;
-    QLabel *label_3;
     QPushButton *pushButton;
+    QTableWidget *Employee_List;
 
     void setupUi(QDialog *payrollDialog)
     {
         if (payrollDialog->objectName().isEmpty())
             payrollDialog->setObjectName(QStringLiteral("payrollDialog"));
         payrollDialog->resize(442, 455);
-        label_2 = new QLabel(payrollDialog);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(90, 0, 301, 51));
+        payrollDialog->setStyleSheet(QStringLiteral("background-color: rgb(44, 44, 44);"));
+        title = new QLabel(payrollDialog);
+        title->setObjectName(QStringLiteral("title"));
+        title->setGeometry(QRect(80, 10, 301, 51));
         QFont font;
         font.setFamily(QStringLiteral("URW Gothic L"));
         font.setPointSize(26);
         font.setBold(true);
         font.setItalic(true);
         font.setWeight(75);
-        label_2->setFont(font);
+        title->setFont(font);
+        title->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
         fullname = new QLabel(payrollDialog);
         fullname->setObjectName(QStringLiteral("fullname"));
-        fullname->setGeometry(QRect(20, 90, 67, 17));
-        label_3 = new QLabel(payrollDialog);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 110, 131, 17));
+        fullname->setGeometry(QRect(20, 150, 67, 17));
         pushButton = new QPushButton(payrollDialog);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(270, 80, 131, 61));
+        pushButton->setGeometry(QRect(310, 80, 131, 41));
+        Employee_List = new QTableWidget(payrollDialog);
+        if (Employee_List->columnCount() < 2)
+            Employee_List->setColumnCount(2);
+        QFont font1;
+        font1.setBold(true);
+        font1.setWeight(75);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setTextAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        __qtablewidgetitem->setFont(font1);
+        Employee_List->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        Employee_List->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        Employee_List->setObjectName(QStringLiteral("Employee_List"));
+        Employee_List->setGeometry(QRect(80, 180, 256, 192));
+        Employee_List->setMaximumSize(QSize(281, 192));
+        Employee_List->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        QWidget::setTabOrder(pushButton, Employee_List);
 
         retranslateUi(payrollDialog);
 
@@ -61,10 +78,13 @@ public:
     void retranslateUi(QDialog *payrollDialog)
     {
         payrollDialog->setWindowTitle(QApplication::translate("payrollDialog", "Dialog", 0));
-        label_2->setText(QApplication::translate("payrollDialog", "Payroll Specialist", 0));
+        title->setText(QApplication::translate("payrollDialog", "Payroll Specialist", 0));
         fullname->setText(QApplication::translate("payrollDialog", "FullName", 0));
-        label_3->setText(QApplication::translate("payrollDialog", "Employee Number", 0));
         pushButton->setText(QApplication::translate("payrollDialog", "List All Employees", 0));
+        QTableWidgetItem *___qtablewidgetitem = Employee_List->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("payrollDialog", "EmployeeNumber", 0));
+        QTableWidgetItem *___qtablewidgetitem1 = Employee_List->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("payrollDialog", "Employee Name", 0));
     } // retranslateUi
 
 };
