@@ -2,8 +2,9 @@
 #include "ui_mainwindow.h"
 #include "employeedialog.h"
 #include "payrolldialog.h"
+#include "user.h"
 
-#include <QMessageBox>s
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,6 +33,7 @@ void MainWindow::on_pushButton_clicked()
     QSqlQuery query;
     if(query.exec("select * from db where username='"+username+"' and password='"+password+"'"))
     */
+    User* employee = NULL;
     if(username=="employee" && password == "1234"){
         hide();
          ui->label_message->setText("You a hoe!!");
@@ -41,9 +43,9 @@ void MainWindow::on_pushButton_clicked()
     }else if(username=="payroll" && password == "1234"){
 
         hide();
-         payrollDialog payDialog;
-         payDialog.setModal(true);
-         payDialog.exec();
+         payrollDialog* payDialog = new payrollDialog(0,employee);
+         payDialog->setModal(true);
+         payDialog->exec();
     }
      else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");

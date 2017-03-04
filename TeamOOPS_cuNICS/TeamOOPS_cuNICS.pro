@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     editemployeeinfocontrol.cpp \
     listemployeescontrol.cpp \
     payrollgenerationtool.cpp \
-    manageemployeesalarycontrol.cpp
+    manageemployeesalarycontrol.cpp \
+    employeeinfo.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -52,11 +53,13 @@ HEADERS  += mainwindow.h \
     editemployeeinfocontrol.h \
     listemployeescontrol.h \
     payrollgenerationtool.h \
-    manageemployeesalarycontrol.h
+    manageemployeesalarycontrol.h \
+    employeeinfo.h
 
 FORMS    += mainwindow.ui \
     employeedialog.ui \
-    payrolldialog.ui
+    payrolldialog.ui \
+    employeeinfo.ui
 
 RESOURCES +=
 
