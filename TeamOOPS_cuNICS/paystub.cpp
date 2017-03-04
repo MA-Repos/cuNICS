@@ -1,13 +1,13 @@
 #include "paystub.h"
 
-Paystub::Paystub(Date*       date,
+Paystub::Paystub(Date*       payDate,
                  float       grossIncome,
                  float       taxDeductions,
                  float       yearToDateGrossIncome,
                  float       yearToDateTaxDeductions,
                  Employee*   employee)
 {
-    this->date                      = date;
+    this->payDate                   = payDate;
     this->grossIncome               = grossIncome;
     this->netIncome                 = grossIncome - taxDeductions;
     this->taxDeductions             = taxDeductions;
@@ -19,16 +19,16 @@ Paystub::Paystub(Date*       date,
 
 Paystub::~Paystub()
 {
-    if (date != NULL) {
-        delete date;
+    if (payDate != NULL) {
+        delete payDate;
     }
     employee = NULL;
 }
 
 //----- Getters -----
-Date* Paystub::getDate()
+Date* Paystub::getPayDate()
 {
-    return date;
+    return payDate;
 }
 
 float Paystub::getGrossIncome()

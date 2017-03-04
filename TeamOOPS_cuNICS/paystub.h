@@ -10,7 +10,7 @@ class Employee;
 class Paystub
 {
 private:
-    Date*       date;
+    Date*       payDate;
     float       grossIncome;
     float       netIncome;
     float       taxDeductions;
@@ -20,7 +20,7 @@ private:
     Employee*   employee;
 
 public:
-    Paystub(Date*       date,
+    Paystub(Date*       payDate,
             float       grossIncome,
             float       taxDeductions,
             float       yearToDateGrossIncome,
@@ -29,7 +29,7 @@ public:
     ~Paystub();
 
     //----- Getters -----
-    Date*   getDate();
+    Date*   getPayDate();
     float   getGrossIncome();
     float   getNetIncome();
     float   getTaxDeductions();
