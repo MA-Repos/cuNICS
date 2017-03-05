@@ -19,6 +19,7 @@ SOURCES += main.cpp\
     employee.cpp \
     payrollspecialist.cpp \
     bankinformation.cpp \
+    databasecontroller.cpp \
     date.cpp \
     phonenumber.cpp \
     address.cpp \
@@ -38,6 +39,7 @@ HEADERS  += mainwindow.h \
     employee.h \
     payrollspecialist.h \
     bankinformation.h \
+    databasecontroller.h \
     date.h \
     phonenumber.h \
     address.h \
