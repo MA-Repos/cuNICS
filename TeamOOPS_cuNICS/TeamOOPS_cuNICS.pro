@@ -32,7 +32,17 @@ SOURCES += main.cpp\
     listemployeescontrol.cpp \
     payrollgenerationtool.cpp \
     manageemployeesalarycontrol.cpp \
+<<<<<<< HEAD
     databasecontroller.cpp
+=======
+    employeeinfo.cpp \
+    databasecontroller.cpp \
+    employeelist.cpp \
+    payrollgentool.cpp \
+    displaysummary.cpp \
+    employeeroleselector.cpp \
+    raiseinputform.cpp
+>>>>>>> 23b5108e8cb660ea3fe0934c6c4b383e1b3e0c37
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -53,15 +63,30 @@ HEADERS  += mainwindow.h \
     listemployeescontrol.h \
     payrollgenerationtool.h \
     manageemployeesalarycontrol.h \
+<<<<<<< HEAD
     databasecontroller.h
 
+=======
+    employeeinfo.h \
+    databasecontroller.h \
+    employeelist.h \
+    payrollgentool.h \
+    displaysummary.h \
+    employeeroleselector.h \
+    raiseinputform.h
+>>>>>>> 23b5108e8cb660ea3fe0934c6c4b383e1b3e0c37
 
 FORMS    += mainwindow.ui \
     employeedialog.ui \
     payrolldialog.ui \
-    employeeinfo.ui
+    employeeinfo.ui \
+    employeelist.ui \
+    payrollgentool.ui \
+    displaysummary.ui \
+    employeeroleselector.ui \
+    raiseinputform.ui
 
-RESOURCES +=
+RESOURCES += \
+    pics.qrc
 
-DISTFILES += \
-    _original.jpeg
+DISTFILES +=

@@ -1,41 +1,45 @@
 #include "payrolldialog.h"
 #include "ui_payrolldialog.h"
 #include "listemployeescontrol.h"
+#include "payrollgentool.h"
+#include "employeeinfo.h"
 #include <qlist.h>
 
 #include <string>
 #include <QMessageBox>
 
-payrollDialog::payrollDialog(QWidget *parent,User* employee) :
+payrollDialog::payrollDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::payrollDialog)
 {
-    this->ps = employee;
-
     ui->setupUi(this);
-  //string fullname = ps->getFullName();
-    //ui->fullname->setText(fullname);
 }
 
 payrollDialog::~payrollDialog()
 {
     delete ui;
-    delete ps;
 }
 
 
 void payrollDialog::on_listemployees_button_clicked()
 {
- //ListEmployeesControl* listemp;
- //QList<Employee*>* employees;
-// employees =   listemp->displayEmployeeList();
+ ListEmployeesControl* listemp = NULL;
+  listemp->displayEmployeeList();
 
-    for(int i =0; i <9; i++){
-        //ui->
-    }
+
 }
 
-void payrollDialog::on_lineEdit_returnPressed()
+
+void payrollDialog::on_PRGT_button_2_clicked()
 {
-     QMessageBox::warning(this,"Login","Username or password is incorrect");
+    PayrollGenTool* payDialog = new PayrollGenTool();
+    payDialog->setModal(true);
+    payDialog->exec();
+}
+
+void payrollDialog::on_EditEmpInfo_button_clicked()
+{
+    employeeInfo* info = new employeeInfo();
+    info->setModal(true);
+    info->exec();
 }

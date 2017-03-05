@@ -10,6 +10,7 @@ ListEmployeesControl::ListEmployeesControl(QSqlDatabase* db)
 int ListEmployeesControl::setFilter(User* filter)
 {
     this->filter = filter;
+    return 0;
 }
 
 int ListEmployeesControl::getAllEmployees()
