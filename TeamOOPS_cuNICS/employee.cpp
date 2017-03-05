@@ -1,7 +1,8 @@
 #include "employee.h"
+#include <QString>
 
-Employee::Employee(string             fName,
-                   string             lName,
+Employee::Employee(QString             fName,
+                   QString             lName,
                    int                employeeNumber,
                    PhoneNumber*       phoneNumber,
                    Address*           address,
@@ -18,8 +19,8 @@ Employee::Employee(string             fName,
     this->roles             = new QList<Role*>();
 }
 
-Employee::Employee(string             fName,
-                   string             lName,
+Employee::Employee(QString             fName,
+                   QString             lName,
                    int                employeeNumber,
                    PhoneNumber*       phoneNumber,
                    Address*           address,
@@ -144,43 +145,43 @@ bool Employee::addPaystub(Paystub *newStub)
     return false;
 }
 
-bool Employee::toAttributeList(QMap<string, string>* list)
+bool Employee::toAttributeList(QMap<QString, QString>* list)
 {
-    list->insert("EmployeeNumber",  varToString(this->getEmployeeNumber()));
-    list->insert("FirstName",       varToString(this->getFName()));
-    list->insert("LastName",        varToString(this->getLName()));
-    list->insert("SinNumber",       varToString(this->getSIN()));
-    list->insert("PhoneNumber",     varToString(this->getPhoneNumber()->getPhoneNumberAsString()));
-    list->insert("Street",          varToString(this->getAddress()->getStreet()));
-    list->insert("StreetNumber",    varToString(this->getAddress()->getStreetNumber()));
-    list->insert("City",            varToString(this->getAddress()->getCity()));
-    list->insert("Province",        varToString(this->getAddress()->getProvince()));
-    list->insert("Country",         varToString(this->getAddress()->getCountry()));
-    list->insert("PostalCode",      varToString(this->getAddress()->getPostalCode()));
-    list->insert("BankName",        varToString(this->getBankInformation()->getBankName()));
-    list->insert("BankNumber",      varToString(this->getBankInformation()->getBankNumber()));
-    list->insert("BranchNumber",    varToString(this->getBankInformation()->getBranchNumber()));
-    list->insert("AccountNumber",   varToString(this->getBankInformation()->getAccountNumber()));
+    list->insert("EmployeeNumber",  QString(this->getEmployeeNumber()));
+    list->insert("FirstName",       QString(this->getFName()));
+    list->insert("LastName",        QString(this->getLName()));
+    list->insert("SinNumber",       QString(this->getSIN()));
+    list->insert("PhoneNumber",     QString(this->getPhoneNumber()->getPhoneNumberAsQString()));
+    list->insert("Street",          QString(this->getAddress()->getStreet()));
+    list->insert("StreetNumber",    QString(this->getAddress()->getStreetNumber()));
+    list->insert("City",            QString(this->getAddress()->getCity()));
+    list->insert("Province",        QString(this->getAddress()->getProvince()));
+    list->insert("Country",         QString(this->getAddress()->getCountry()));
+    list->insert("PostalCode",      QString(this->getAddress()->getPostalCode()));
+    list->insert("BankName",        QString(this->getBankInformation()->getBankName()));
+    list->insert("BankNumber",      QString(this->getBankInformation()->getBankNumber()));
+    list->insert("BranchNumber",    QString(this->getBankInformation()->getBranchNumber()));
+    list->insert("AccountNumber",   QString(this->getBankInformation()->getAccountNumber()));
 
     return true;
 }
 
-string Employee::toString()
+QString Employee::toQString()
 {
     return
-    varToString(this->getEmployeeNumber()) + "  " +
-    varToString(this->getFName()) + "  " +
-    varToString(this->getLName()) + "  " +
-    varToString(this->getSIN()) + "  " +
-    varToString(this->getPhoneNumber()->getPhoneNumberAsString()) + "  " +
-    varToString(this->getAddress()->getStreet()) + "  " +
-    varToString(this->getAddress()->getStreetNumber()) + "  " +
-    varToString(this->getAddress()->getCity()) + "  " +
-    varToString(this->getAddress()->getProvince()) + "  " +
-    varToString(this->getAddress()->getCountry()) + "  " +
-    varToString(this->getAddress()->getPostalCode()) + "  " +
-    varToString(this->getBankInformation()->getBankName()) + "  " +
-    varToString(this->getBankInformation()->getBankNumber()) + "  " +
-    varToString(this->getBankInformation()->getBranchNumber()) + "  " +
-    varToString(this->getBankInformation()->getAccountNumber());
+    QString(this->getEmployeeNumber()) + "  " +
+    QString(this->getFName()) + "  " +
+    QString(this->getLName()) + "  " +
+    QString(this->getSIN()) + "  " +
+    QString(this->getPhoneNumber()->getPhoneNumberAsQString()) + "  " +
+    QString(this->getAddress()->getStreet()) + "  " +
+    QString(this->getAddress()->getStreetNumber()) + "  " +
+    QString(this->getAddress()->getCity()) + "  " +
+    QString(this->getAddress()->getProvince()) + "  " +
+    QString(this->getAddress()->getCountry()) + "  " +
+    QString(this->getAddress()->getPostalCode()) + "  " +
+    QString(this->getBankInformation()->getBankName()) + "  " +
+    QString(this->getBankInformation()->getBankNumber()) + "  " +
+    QString(this->getBankInformation()->getBranchNumber()) + "  " +
+    QString(this->getBankInformation()->getAccountNumber());
 }

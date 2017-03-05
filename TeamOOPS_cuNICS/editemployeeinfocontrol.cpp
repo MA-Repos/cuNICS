@@ -2,6 +2,7 @@
 #include "employee.h"
 #include "constants.h"
 #include <QMap>
+#include <QString>
 
 #include <iostream>
 
@@ -16,10 +17,10 @@ int EditEmployeeInfoControl::updateEmployeeInfo()
 {
     NullCheckNegOne(db);
 
-    QMap<string, string> list;
+    QMap<QString, QString> list;
 
     employee->toAttributeList(&list);
-    cout << list.value("Firstname");
+    cout << (list.value(QString("Firstname"))).toStdString();
 
     string query = "UPDATE employee"
                    "SET " ;

@@ -6,7 +6,7 @@ BankInformation::BankInformation()
     BankInformation(0, 0, 0, "None", "None", "None");
 }
 
-BankInformation::BankInformation(int accountNumber, int bankNumber, int branchNumber, string bankName, string clientFName, string clientLName)
+BankInformation::BankInformation(int accountNumber, int bankNumber, int branchNumber, QString bankName, QString clientFName, QString clientLName)
 {
     this->accountNumber = accountNumber;
     this->bankNumber    = bankNumber;
@@ -37,12 +37,12 @@ int BankInformation::getBranchNumber()
     return branchNumber;
 }
 
-string BankInformation::getBankName()
+QString BankInformation::getBankName()
 {
     return bankName;
 }
 
-string BankInformation::getClientName()
+QString BankInformation::getClientName()
 {
     return clientFName + " " + clientLName;
 }

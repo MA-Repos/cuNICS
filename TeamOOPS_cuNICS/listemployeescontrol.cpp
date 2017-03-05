@@ -48,26 +48,26 @@ int ListEmployeesControl::getAllEmployees()
     while (query.next()){
         employees->append(
                     new Employee(
-                                 query.value(indexFName).toString().toStdString(),
-                                 query.value(indexLName).toString().toStdString(),
+                                 query.value(indexFName).toString(),
+                                 query.value(indexLName).toString(),
                                  query.value(indexEmployeeID).toInt(),
                                  new PhoneNumber(),
-                                 new Address(query.value(indexStreet).toString().toStdString(),
+                                 new Address(query.value(indexStreet).toString(),
                                              query.value(indexStreetNumber).toInt(),
-                                             query.value(indexCity).toString().toStdString(),
-                                             query.value(indexProvince).toString().toStdString(),
-                                             query.value(indexCountry).toString().toStdString(),
-                                             query.value(indexPostalCode).toString().toStdString()),
+                                             query.value(indexCity).toString(),
+                                             query.value(indexProvince).toString(),
+                                             query.value(indexCountry).toString(),
+                                             query.value(indexPostalCode).toString()),
                                  new BankInformation(query.value(indexAccountNumber).toInt(),
                                                      query.value(indexBankNumber).toInt(),
                                                      query.value(indexBranchNumber).toInt(),
-                                                     query.value(indexBankName).toString().toStdString(),
-                                                     query.value(indexFName).toString().toStdString(),
-                                                     query.value(indexLName).toString().toStdString()),
+                                                     query.value(indexBankName).toString(),
+                                                     query.value(indexFName).toString(),
+                                                     query.value(indexLName).toString()),
                                  query.value(indexSinNumber).toInt()
                                  )
                         );
-        QString qstr = QString::fromStdString(employees->at(i)->toString());
+        QString qstr = employees->at(i)->toQString();
         qDebug() << qstr << endl;
         i++;
     }
