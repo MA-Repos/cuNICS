@@ -38,8 +38,6 @@ public:
     bool setTermFullTimeStatus(Date *startDate, Date *endDate);
     bool setContinuingFullTimeStatus(Date *startDate);
     bool setContinuingPartTimeStatus(Date *startDate);
-
-    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // STATUS_H

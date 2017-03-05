@@ -1,4 +1,5 @@
 #include "bankinformation.h"
+#include "constants.h"
 
 BankInformation::BankInformation()
 {

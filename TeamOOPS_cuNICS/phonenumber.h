@@ -21,8 +21,6 @@ public:
 
     //----- Getters -----
     string getPhoneNumberAsString();
-
-    bool   toAttributeList(QMap<string, string>* list);
 };
 
 #endif // PHONENUMBER_H

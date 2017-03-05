@@ -2,6 +2,8 @@
 #define USER_H
 
 #include <string>
+#include <QMap>
+
 using namespace std;
 
 class User
@@ -30,7 +32,8 @@ public:
     string getFullName();
     string getUsername();
 
-
+    virtual bool toAttributeList(QMap<string, string>* list);
+    virtual string toString();
 };
 
 #endif // USER_H

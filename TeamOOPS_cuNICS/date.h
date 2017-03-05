@@ -29,8 +29,6 @@ public:
     bool operator<=(Date&) const;
     bool operator>=(Date&) const;
     bool operator==(Date&) const;
-
-    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // DATE_H

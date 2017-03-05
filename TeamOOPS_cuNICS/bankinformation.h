@@ -27,7 +27,6 @@ public:
     int     getBranchNumber();
     string  getBankName();
     string  getClientName();
-    bool    toAttributeList(QMap<string, string>* list);
 };
 
 #endif // BANKINFORMATION_H
