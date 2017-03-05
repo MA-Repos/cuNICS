@@ -2,7 +2,9 @@
 #define EMPLOYEE_H
 
 #include "user.h"
+#include "phonenumber.h"
 #include "address.h"
+#include "bankinformation.h"
 #include "role.h"
 #include "paystub.h"
 #include <qlist.h>
@@ -14,31 +16,39 @@ class Employee : public User
 {
 private:
     int                 employeeNumber;
+    PhoneNumber*        phoneNumber;
     Address*            address;
+    BankInformation*    bankInformation;
     QList<Role*>*       roles;
     int                 sin;
     QList<Paystub*>*    paystubs;
 
 public:
-    Employee(string     fName,
-             string     lName,
-             int        employeeNumber,
-             Address*   address,
-             int        sin);
+    Employee(string             fName,
+             string             lName,
+             int                employeeNumber,
+             PhoneNumber*       phoneNumber,
+             Address*           address,
+             BankInformation*   bankInformation,
+             int                sin);
 
     Employee(string             fName,
              string             lName,
              int                employeeNumber,
+             PhoneNumber*       phoneNumber,
              Address*           address,
+             BankInformation*   bankInformation,
              int                sin,
              QList<Role*>*      roles,
              QList<Paystub*>*   paystubs);
     ~Employee();
 
     //----- Getters -----
-    int         getEmployeeNumber();
-    Address*    getAddress();
-    int         getSIN();
+    int                 getEmployeeNumber();
+    PhoneNumber*        getPhoneNumber();
+    Address*            getAddress();
+    BankInformation*    getBankInformation();
+    int                 getSIN();
 
     //----- Role Methods -----
     int         getNumRoles();
@@ -51,6 +61,7 @@ public:
     Paystub*    getPaystubAtIndex(int i);
     bool        addPaystub(Paystub* newStub);
     bool        toAttributeList(QMap<string, string>* list);
+    string      toString();
 };
 
 #endif // EMPLOYEE_H

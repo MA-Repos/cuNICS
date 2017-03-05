@@ -39,8 +39,6 @@ public:
     float   getYTDTaxDeductions();
     string  getEmployeeName();
     int     getEmployeeID();
-
-    bool    toAttributeList(QMap<string, string>* list);
 };
 
 #endif // PAYSTUB_H

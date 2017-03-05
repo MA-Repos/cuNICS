@@ -1,24 +1,22 @@
 #ifndef LISTEMPLOYEESCONTROL_H
 #define LISTEMPLOYEESCONTROL_H
 
-#include "employee.h"
-#include <QSqlDatabase>
+#include "user.h"
+#include <QList>
 
 class ListEmployeesControl
 {
 
 private:
-    User** employees;
+    QList<User*>* employees;
     User* filter;
-    QSqlDatabase* db;
     int getAllEmployees();
 
 public:
-    ListEmployeesControl(QSqlDatabase*);
+    ListEmployeesControl();
     ~ListEmployeesControl();
     int  setFilter(User*);
     int  displayEmployeeList();
-    bool toAttributeList(QMap<string, string>* list);
 };
 
 #endif // LISTEMPLOYEESCONTROL_H

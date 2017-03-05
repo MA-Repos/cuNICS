@@ -71,3 +71,13 @@ string User::getUsername()
 {
     return username;
 }
+
+bool User::toAttributeList(QMap<string, string>* list)
+{
+
+}
+
+string User::toString()
+{
+
+}

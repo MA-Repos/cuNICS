@@ -41,8 +41,6 @@ public:
     string  getProvince();
     string  getCountry();
     string  getPostalCode();
-
-    bool    toAttributeList(QMap<string, string>* list);
 };
 
 #endif // ADDRESS_H
