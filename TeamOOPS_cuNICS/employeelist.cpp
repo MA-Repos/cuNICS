@@ -1,13 +1,17 @@
 #include "employeelist.h"
 #include "ui_employeelist.h"
 #include "employee.h"
+#include "user.h"
+#include <QString>
 
-EmployeeList::EmployeeList(QWidget *parent,QList* employeeList) :
+EmployeeList::EmployeeList(QWidget *parent, QList<Employee*>* emplst) :
     QWidget(parent),
     ui(new Ui::EmployeeList)
 {
     ui->setupUi(this);
-    this->employees = employeeList;
+    this->employees = emplst;
+    this->display_List();
+
 }
 
 EmployeeList::~EmployeeList()
@@ -28,18 +32,30 @@ void EmployeeList::on_Employee_List_cellDoubleClicked(int row, int column)
 
 void EmployeeList::display_List(){
 
-     int rowNum = ui->Employee_List->rowCount();
+    for (int i =0; i < 10; i++){
+        //QString name = QString::fromStdString((*i)->getFullName());
+        //QString eID = QString::number((*i)->getEmployeeNumber());
 
-     if(rowNum == NULL)
-         rowNum = 0;
+        const int currentRow =  ui->Employee_List->rowCount();
+         ui->Employee_List->setRowCount(currentRow + 1);
 
+        ui->Employee_List->setItem(currentRow, 0, new QTableWidgetItem("number"));
+        ui->Employee_List->setItem(currentRow, 1, new QTableWidgetItem("name"));
+
+    }
+
+        if (!this->employees)
+            return;
     QList<Employee*>::iterator i;
-    for (i = list.begin(); i != list.end(); ++i){
-        QString name = i->getFullName();
-        QString eID = i->getEmployeeNumber();
+    for (i = this->employees->begin(); i != this->employees->end(); ++i){
+        QString name = QString::fromStdString((*i)->getFullName());
+        QString eID = QString::number((*i)->getEmployeeNumber());
 
-         QTableWidgetItem* itm = ui->Employee_List->item( row, column );
+        const int currentRow =  ui->Employee_List->rowCount();
+         ui->Employee_List->setRowCount(currentRow + 1);
 
+        ui->Employee_List->setItem(currentRow, 0, new QTableWidgetItem(eID));
+        ui->Employee_List->setItem(currentRow, 1, new QTableWidgetItem(name));
 
     }
 

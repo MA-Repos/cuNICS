@@ -23,6 +23,8 @@ private slots:
 
     void on_EditEmpInfo_button_clicked();
 
+    void on_LAE_button_clicked();
+
 private:
     Ui::payrollDialog *ui;
 

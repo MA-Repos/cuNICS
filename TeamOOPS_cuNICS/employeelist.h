@@ -2,6 +2,7 @@
 #define EMPLOYEELIST_H
 
 #include <QWidget>
+#include <QList>
 #include "employee.h"
 
 namespace Ui {
@@ -13,7 +14,7 @@ class EmployeeList : public QWidget
     Q_OBJECT
 
 public:
-    explicit EmployeeList(QWidget *parent = 0,QList* employeeList);
+    explicit EmployeeList(QWidget *parent = 0, QList<Employee*>* emplst = NULL);
     ~EmployeeList();
 
 private slots:

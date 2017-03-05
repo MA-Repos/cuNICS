@@ -81,4 +81,3 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     pics.qrc
 
-DISTFILES +=

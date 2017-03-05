@@ -20,13 +20,6 @@ payrollDialog::~payrollDialog()
     delete ui;
 }
 
-void payrollDialog::on_listemployees_button_clicked()
-{
- ListEmployeesControl* listemp = NULL;
-  listemp->displayEmployeeList();
-
-
-}
 
 
 void payrollDialog::on_PRGT_button_2_clicked()
@@ -41,4 +34,10 @@ void payrollDialog::on_EditEmpInfo_button_clicked()
     employeeInfo* info = new employeeInfo();
     info->setModal(true);
     info->exec();
+}
+
+void payrollDialog::on_LAE_button_clicked()
+{
+    ListEmployeesControl* listemp = NULL;
+     listemp->displayEmployeeList();
 }
