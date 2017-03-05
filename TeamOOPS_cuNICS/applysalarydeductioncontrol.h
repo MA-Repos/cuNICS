@@ -2,19 +2,20 @@
 #define APPLYSALARYDEDUCTIONCONTROL_H
 
 #include "employee.h"
+#include "databasecontroller.h"
 
 class ApplySalaryDeductionControl
 {
 private:
-    User* employee;
-    //TODO: Add a reference to DBControl Object
+    Employee*           employee;
+    DatabaseController* dbControl;
 
     bool createSalaryDeductionOption(); // May need to change this based on what the boundary object name is
     bool updateSalaryInDatabase(float deduction);
     bool notifyUserSuccess();
 
 public:
-    ApplySalaryDeductionControl(User* employee);
+    ApplySalaryDeductionControl(Employee* employee);
     ~ApplySalaryDeductionControl();
 
     bool setDeductionPercentage(float deduction);

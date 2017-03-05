@@ -1,6 +1,6 @@
 #include "applysalarydeductioncontrol.h"
 
-ApplySalaryDeductionControl::ApplySalaryDeductionControl(User *employee)
+ApplySalaryDeductionControl::ApplySalaryDeductionControl(Employee *employee)
 {
     this->employee = employee;
 }
@@ -22,7 +22,13 @@ bool ApplySalaryDeductionControl::createSalaryDeductionOption()
 
 bool ApplySalaryDeductionControl::updateSalaryInDatabase(float deduction)
 {
-    //Needs to call UPDATE in the db control object
+    if (dbControl != NULL) {
+        dbControl->QueryDatabase("update employmentdetails set deductionpercentage=" + QString::number(deduction) +
+                                 " where employeeid=" + QString(employee->getEmployeeNumber()));
+    }
+    else {
+
+    }
     notifyUserSuccess();
     return true;
 }
