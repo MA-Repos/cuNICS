@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/pics">
+        <file>female.png</file>
+        <file>male.png</file>
+        <file>add.png</file>
+        <file>../../../delete.png</file>
+    </qresource>
+</RCC>

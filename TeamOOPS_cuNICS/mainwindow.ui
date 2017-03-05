@@ -41,109 +41,13 @@ border: 8px double  #080608;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="frame_2">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>100</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLineEdit" name="lineEdit_username">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>241</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QFrame" name="frame_3">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>160</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_username">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>70</y>
-       <width>111</width>
-       <height>36</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#label_username{
-font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 700;
-	line-height: 12.6px;
-background-color: rgba(0,0,0,0);
-}</string>
-     </property>
-     <property name="text">
-      <string>Username</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_password">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>130</y>
-       <width>98</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#label_password{
-font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 700;
-	line-height: 12.6px;
-background-color: rgba(0,0,0,0);
-}</string>
-     </property>
-     <property name="text">
-      <string>Password</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="logi_button">
+    <widget class="QPushButton" name="login_button">
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>220</y>
+       <y>110</y>
        <width>201</width>
-       <height>31</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -155,20 +59,7 @@ font-size: 20px;
 }</string>
      </property>
      <property name="text">
-      <string>Log In</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_password">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>160</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string>LogIn</string>
      </property>
     </widget>
    </widget>

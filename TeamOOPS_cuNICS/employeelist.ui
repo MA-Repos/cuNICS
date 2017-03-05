@@ -33,12 +33,12 @@
    </property>
    <row>
     <property name="text">
-     <string/>
+     <string>EmployeeInformation</string>
     </property>
    </row>
    <column>
     <property name="text">
-     <string>E#</string>
+     <string>EmployeeID</string>
     </property>
     <property name="font">
      <font>
@@ -52,7 +52,7 @@
    </column>
    <column>
     <property name="text">
-     <string>E Name</string>
+     <string>Name</string>
     </property>
     <property name="textAlignment">
      <set>AlignCenter</set>

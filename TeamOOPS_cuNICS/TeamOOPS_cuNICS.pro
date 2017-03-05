@@ -78,7 +78,7 @@ FORMS    += mainwindow.ui \
     employeeroleselector.ui \
     raiseinputform.ui
 
-RESOURCES +=
+RESOURCES += \
+    pics.qrc
 
-DISTFILES += \
-    _original.jpeg
+DISTFILES +=
