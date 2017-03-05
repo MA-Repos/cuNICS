@@ -16,16 +16,6 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="employeeList" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>260</y>
-     <width>601</width>
-     <height>351</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -192,17 +182,8 @@ color: rgb(0, 0, 0);</string>
    </widget>
   </widget>
   <zorder>frame_2</zorder>
-  <zorder>widget</zorder>
   <zorder>frame</zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>employeeList</class>
-   <extends>QWidget</extends>
-   <header location="global">employeelist.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

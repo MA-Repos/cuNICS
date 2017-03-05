@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>231</height>
+    <width>393</width>
+    <height>237</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,23 +19,24 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <widget class="QTableWidget" name="Employee_List">
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QTableWidget" name="tableList">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>20</x>
      <y>0</y>
-     <width>371</width>
+     <width>201</width>
      <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
-   <row>
-    <property name="text">
-     <string>EmployeeInformation</string>
-    </property>
-   </row>
+   <property name="editTriggers">
+    <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+   </property>
    <column>
     <property name="text">
      <string>EmployeeID</string>

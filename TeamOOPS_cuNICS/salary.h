@@ -26,8 +26,6 @@ public:
     float getSalary();
     float getDeductionPercentage();
     float getSalaryAfterDeduction();
-
-    bool  toAttributeList(QMap<string, string>* list);
 };
 
 #endif // SALARY_H

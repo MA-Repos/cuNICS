@@ -1,7 +1,7 @@
 #ifndef BANKINFORMATION_H
 #define BANKINFORMATION_H
 
-#include <string>
+#include <QString>
 #include <QMap>
 
 using namespace std;
@@ -12,22 +12,21 @@ private:
     int     accountNumber;
     int     bankNumber;
     int     branchNumber;
-    string  bankName;
-    string  clientFName;
-    string  clientLName;
+    QString  bankName;
+    QString  clientFName;
+    QString  clientLName;
 
 public:
     BankInformation();
-    BankInformation(int accountNumber, int bankNumber, int branchNumber, string bankName, string clientFName, string clientLName);
+    BankInformation(int accountNumber, int bankNumber, int branchNumber, QString bankName, QString clientFName, QString clientLName);
     ~BankInformation();
 
     //----- Getters -----
     int     getAccountNumber();
     int     getBankNumber();
     int     getBranchNumber();
-    string  getBankName();
-    string  getClientName();
-    bool    toAttributeList(QMap<string, string>* list);
+    QString  getBankName();
+    QString  getClientName();
 };
 
 #endif // BANKINFORMATION_H

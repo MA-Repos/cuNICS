@@ -17,7 +17,6 @@ public:
     ~payrollDialog();
 
 private slots:
-    void on_listemployees_button_clicked();
 
     void on_PRGT_button_2_clicked();
 

@@ -2,9 +2,10 @@
 #define EMPLOYEE_H
 
 #include "user.h"
+#include "phonenumber.h"
 #include "address.h"
+#include "bankinformation.h"
 #include "role.h"
-#include "salary.h"
 #include "paystub.h"
 #include <qlist.h>
 #include <QMap>
@@ -15,34 +16,52 @@ class Employee : public User
 {
 private:
     int                 employeeNumber;
+    PhoneNumber*        phoneNumber;
     Address*            address;
-    Role*               role;
-    Salary*             salary;
+    BankInformation*    bankInformation;
+    QList<Role*>*       roles;
     int                 sin;
     QList<Paystub*>*    paystubs;
 
 public:
-    Employee(string     fName,
-             string     lName,
-             int        employeeNumber,
-             Address*   address,
-             Role*      role,
-             Salary*    salary,
-             int        sin);
+    Employee(QString             fName,
+             QString             lName,
+             int                employeeNumber,
+             PhoneNumber*       phoneNumber,
+             Address*           address,
+             BankInformation*   bankInformation,
+             int                sin);
+
+    Employee(QString             fName,
+             QString             lName,
+             int                employeeNumber,
+             PhoneNumber*       phoneNumber,
+             Address*           address,
+             BankInformation*   bankInformation,
+             int                sin,
+             QList<Role*>*      roles,
+             QList<Paystub*>*   paystubs);
     ~Employee();
 
     //----- Getters -----
-    int         getEmployeeNumber();
-    Address*    getAddress();
-    Role*       getRole();
-    Salary*     getSalary();
-    int         getSIN();
+    int                 getEmployeeNumber();
+    PhoneNumber*        getPhoneNumber();
+    Address*            getAddress();
+    BankInformation*    getBankInformation();
+    int                 getSIN();
 
+    //----- Role Methods -----
+    int         getNumRoles();
+    Role*       getRoleAtIndex(int i);
+    bool        addRole(Role* newRole);
+
+    //----- Paystub Methods -----
+    int         getNumStubs();
     Paystub*    getLastPaystub();
     Paystub*    getPaystubAtIndex(int i);
-
     bool        addPaystub(Paystub* newStub);
-    bool        toAttributeList(QMap<string, string>* list);
+    bool        toAttributeList(QMap<QString, QString> *list);
+    QString     toQString();
 };
 
 #endif // EMPLOYEE_H

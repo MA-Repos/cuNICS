@@ -3,18 +3,19 @@
 
 Role::Role()
 {
-    Role(NO_ROLE, NULL);
+    Role(NO_ROLE, NULL, NULL);
 }
 
 Role::Role(RoleType roleType)
 {
-    Role(roleType, NULL);
+    Role(roleType, NULL, NULL);
 }
 
-Role::Role(RoleType roleType, Status* status)
+Role::Role(RoleType roleType, Status* status, Salary* salary)
 {
     this->roleType  = roleType;
     this->status    = status;
+    this->salary    = salary;
 }
 
 Role::~Role()

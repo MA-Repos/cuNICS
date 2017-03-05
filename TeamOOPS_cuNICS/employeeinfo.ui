@@ -65,9 +65,6 @@ border-bottom-color: rgb(255, 255, 255);</string>
      <string>Employee Information</string>
     </property>
    </widget>
-   <zorder>title</zorder>
-   <zorder>frame_3</zorder>
-   <zorder>frame_3</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
@@ -158,16 +155,57 @@ border:none;
       <string>Edit</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>95</width>
-       <height>111</height>
+       <width>241</width>
+       <height>119</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_employeeNum">
+        <property name="styleSheet">
+         <string notr="true">border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+border: solid 2px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Panel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>EmployeeID#:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_Bankacc">
+        <property name="styleSheet">
+         <string notr="true">
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Panel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Bank Account</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QLabel" name="label_fullname">
         <property name="styleSheet">
@@ -184,27 +222,6 @@ border:none;
         </property>
         <property name="text">
          <string>Full Name:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_phonenum">
-        <property name="styleSheet">
-         <string notr="true">border-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
-border: solid 2px;</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::Panel</enum>
-        </property>
-        <property name="lineWidth">
-         <number>0</number>
-        </property>
-        <property name="midLineWidth">
-         <number>0</number>
-        </property>
-        <property name="text">
-         <string>Mobile#:</string>
         </property>
        </widget>
       </item>
@@ -246,26 +263,6 @@ border: solid 2px;</string>
         </property>
         <property name="text">
          <string>SIN</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_Bankacc">
-        <property name="styleSheet">
-         <string notr="true">
-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::Panel</enum>
-        </property>
-        <property name="lineWidth">
-         <number>0</number>
-        </property>
-        <property name="midLineWidth">
-         <number>0</number>
-        </property>
-        <property name="text">
-         <string>Bank Account</string>
         </property>
        </widget>
       </item>
@@ -363,35 +360,30 @@ border:none;
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QListWidget" name="listWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>261</width>
+       <width>256</width>
        <height>192</height>
       </rect>
      </property>
-     <row>
+     <item>
       <property name="text">
-       <string>New Row</string>
+       <string>New Item</string>
       </property>
-     </row>
-     <row>
+     </item>
+     <item>
       <property name="text">
-       <string>New Row</string>
+       <string>New Item</string>
       </property>
-     </row>
-     <row>
+     </item>
+     <item>
       <property name="text">
-       <string>New Row</string>
+       <string>New Item</string>
       </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>New Column</string>
-      </property>
-     </column>
+     </item>
     </widget>
    </widget>
    <widget class="QLabel" name="title_3">
@@ -460,8 +452,6 @@ border:none;
    </widget>
    <zorder>role_bg</zorder>
    <zorder>profile_bg</zorder>
-   <zorder>horizontalSpacer</zorder>
-   <zorder>frame</zorder>
    <zorder>label_profilePic</zorder>
    <zorder>title_3</zorder>
    <zorder>pushButton</zorder>

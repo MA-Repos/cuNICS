@@ -1,5 +1,6 @@
 #include "phonenumber.h"
 #include <sstream>
+#include <QString>
 
 PhoneNumber::PhoneNumber()
 {
@@ -20,7 +21,7 @@ PhoneNumber::~PhoneNumber()
 }
 
 //----- Getters -----
-string PhoneNumber::getPhoneNumberAsString()
+QString PhoneNumber::getPhoneNumberAsQString()
 {
     //convert the phone number to a string
     ostringstream convert;
@@ -29,5 +30,7 @@ string PhoneNumber::getPhoneNumberAsString()
     convert << localNumber;
     convert << extension;
 
-    return convert.str();
+    return QString(convert.str().c_str());
 }
+
+

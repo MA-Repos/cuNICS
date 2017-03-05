@@ -1,34 +1,34 @@
 #include "paystub.h"
 
-Paystub::Paystub(Date*       date,
+Paystub::Paystub(Date*       payDate,
                  float       grossIncome,
-                 float       deductions,
+                 float       taxDeductions,
                  float       yearToDateGrossIncome,
-                 float       yearToDateDeductions,
+                 float       yearToDateTaxDeductions,
                  Employee*   employee)
 {
-    this->date                      = date;
+    this->payDate                   = payDate;
     this->grossIncome               = grossIncome;
-    this->netIncome                 = grossIncome - deductions;
-    this->deductions                = deductions;
+    this->netIncome                 = grossIncome - taxDeductions;
+    this->taxDeductions             = taxDeductions;
     this->yearToDateGrossIncome     = yearToDateGrossIncome;
-    this->yearToDateNetIncome       = yearToDateGrossIncome - yearToDateDeductions;
-    this->yearToDateDeductions      = yearToDateDeductions;
+    this->yearToDateNetIncome       = yearToDateGrossIncome - yearToDateTaxDeductions;
+    this->yearToDateTaxDeductions   = yearToDateTaxDeductions;
     this->employee                  = employee;
 }
 
 Paystub::~Paystub()
 {
-    if (date != NULL) {
-        delete date;
+    if (payDate != NULL) {
+        delete payDate;
     }
     employee = NULL;
 }
 
 //----- Getters -----
-Date* Paystub::getDate()
+Date* Paystub::getPayDate()
 {
-    return date;
+    return payDate;
 }
 
 float Paystub::getGrossIncome()
@@ -41,9 +41,9 @@ float Paystub::getNetIncome()
     return netIncome;
 }
 
-float Paystub::getDeductions()
+float Paystub::getTaxDeductions()
 {
-    return deductions;
+    return taxDeductions;
 }
 
 float Paystub::getYTDGrossIncome()
@@ -56,18 +56,18 @@ float Paystub::getYTDNetIncome()
     return yearToDateNetIncome;
 }
 
-float Paystub::getYTDDeductions()
+float Paystub::getYTDTaxDeductions()
 {
-    return yearToDateDeductions;
+    return yearToDateTaxDeductions;
 }
 
-string Paystub::getEmployeeName()
+QString Paystub::getEmployeeName()
 {
     return employee->getFullName();
 }
 
 int Paystub::getEmployeeID()
 {
-    //TODO: Implement
-    return 0;
+    return employee->getEmployeeNumber();
 }
+

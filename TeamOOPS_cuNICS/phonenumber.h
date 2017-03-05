@@ -20,9 +20,7 @@ public:
     ~PhoneNumber();
 
     //----- Getters -----
-    string getPhoneNumberAsString();
-
-    bool   toAttributeList(QMap<string, string>* list);
+    QString getPhoneNumberAsQString();
 };
 
 #endif // PHONENUMBER_H

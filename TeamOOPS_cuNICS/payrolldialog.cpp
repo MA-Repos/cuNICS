@@ -31,13 +31,14 @@ void payrollDialog::on_PRGT_button_2_clicked()
 
 void payrollDialog::on_EditEmpInfo_button_clicked()
 {
-    employeeInfo* info = new employeeInfo();
-    info->setModal(true);
-    info->exec();
+//    employeeInfo* info = new employeeInfo();
+//    info->setModal(true);
+//    info->exec();
 }
 
 void payrollDialog::on_LAE_button_clicked()
 {
-    ListEmployeesControl* listemp = NULL;
+    ListEmployeesControl* listemp = new ListEmployeesControl(this);
      listemp->displayEmployeeList();
+     qDebug() << "qstr" << endl;
 }

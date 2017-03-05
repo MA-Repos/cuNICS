@@ -3,7 +3,7 @@
 
 #include "date.h"
 #include "employee.h"
-#include <string>
+#include <QString>
 #include <QMap>
 
 class Employee;
@@ -11,36 +11,34 @@ class Employee;
 class Paystub
 {
 private:
-    Date*       date;
+    Date*       payDate;
     float       grossIncome;
     float       netIncome;
-    float       deductions;
+    float       taxDeductions;
     float       yearToDateGrossIncome;
     float       yearToDateNetIncome;
-    float       yearToDateDeductions;
+    float       yearToDateTaxDeductions;
     Employee*   employee;
 
 public:
-    Paystub(Date*       date,
+    Paystub(Date*       payDate,
             float       grossIncome,
-            float       deductions,
+            float       taxDeductions,
             float       yearToDateGrossIncome,
-            float       yearToDateDeductions,
+            float       yearToDatetaxDeductions,
             Employee*   employee);
     ~Paystub();
 
     //----- Getters -----
-    Date*   getDate();
+    Date*   getPayDate();
     float   getGrossIncome();
     float   getNetIncome();
-    float   getDeductions();
+    float   getTaxDeductions();
     float   getYTDGrossIncome();
     float   getYTDNetIncome();
-    float   getYTDDeductions();
-    string  getEmployeeName();
+    float   getYTDTaxDeductions();
+    QString getEmployeeName();
     int     getEmployeeID();
-
-    bool    toAttributeList(QMap<string, string>* list);
 };
 
 #endif // PAYSTUB_H
