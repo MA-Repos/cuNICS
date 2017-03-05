@@ -20,7 +20,7 @@ public:
     ~PhoneNumber();
 
     //----- Getters -----
-    string getPhoneNumberAsString();
+    QString getPhoneNumberAsQString();
 };
 
 #endif // PHONENUMBER_H

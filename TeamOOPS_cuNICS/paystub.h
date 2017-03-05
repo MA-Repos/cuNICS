@@ -3,7 +3,7 @@
 
 #include "date.h"
 #include "employee.h"
-#include <string>
+#include <QString>
 #include <QMap>
 
 class Employee;
@@ -37,7 +37,7 @@ public:
     float   getYTDGrossIncome();
     float   getYTDNetIncome();
     float   getYTDTaxDeductions();
-    string  getEmployeeName();
+    QString getEmployeeName();
     int     getEmployeeID();
 };
 

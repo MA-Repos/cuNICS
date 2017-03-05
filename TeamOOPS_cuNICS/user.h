@@ -1,7 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
-#include <string>
+#include <QString>
 #include <QMap>
 
 using namespace std;
@@ -9,31 +9,31 @@ using namespace std;
 class User
 {
 protected:
-    string fName;
-    string lName;
-    string username;
-    string password;
+    QString fName;
+    QString lName;
+    QString username;
+    QString password;
 
 public:
     User();
-    User(string fName, string lName);
-    User(string fName, string lName, string username, string password);
+    User(QString fName, QString lName);
+    User(QString fName, QString lName, QString username, QString password);
     ~User();
 
     //----- Setters -----
-    bool setFName(string);
-    bool setLName(string);
-    bool setUsername(string);
-    bool setPassword(string);
+    bool setFName(QString);
+    bool setLName(QString);
+    bool setUsername(QString);
+    bool setPassword(QString);
 
     //----- Getters -----
-    string getFName();
-    string getLName();
-    string getFullName();
-    string getUsername();
+    QString getFName();
+    QString getLName();
+    QString getFullName();
+    QString getUsername();
 
-    virtual bool toAttributeList(QMap<string, string>* list);
-    virtual string toString();
+    virtual bool toAttributeList(QMap<QString, QString>* list);
+    virtual QString toQString();
 };
 
 #endif // USER_H

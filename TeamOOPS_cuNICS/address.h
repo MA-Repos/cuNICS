@@ -1,7 +1,7 @@
 #ifndef ADDRESS_H
 #define ADDRESS_H
 
-#include <string>
+#include <QString>
 #include <QMap>
 
 using namespace std;
@@ -9,38 +9,38 @@ using namespace std;
 class Address
 {
 private:
-    string  street;
+    QString  street;
     int     streetNumber;
-    string  city;
-    string  province;
-    string  country;
-    string  postalCode;
+    QString  city;
+    QString  province;
+    QString  country;
+    QString  postalCode;
 
 public:
     Address();
-    Address(string street,
+    Address(QString street,
             int    streetNumber,
-            string city,
-            string province,
-            string country,
-            string postalCode);
+            QString city,
+            QString province,
+            QString country,
+            QString postalCode);
     ~Address();
 
     //----- Setters -----
-    bool setStreet(string street);
+    bool setStreet(QString street);
     bool setStreetNumber(int number);
-    bool setCity(string city);
-    bool setProvince(string province);
-    bool setCountry(string country);
-    bool setPostalCode(string postalCode);
+    bool setCity(QString city);
+    bool setProvince(QString province);
+    bool setCountry(QString country);
+    bool setPostalCode(QString postalCode);
 
     //----- Getters -----
-    string  getStreet();
+    QString  getStreet();
     int     getStreetNumber();
-    string  getCity();
-    string  getProvince();
-    string  getCountry();
-    string  getPostalCode();
+    QString  getCity();
+    QString  getProvince();
+    QString  getCountry();
+    QString  getPostalCode();
 };
 
 #endif // ADDRESS_H
