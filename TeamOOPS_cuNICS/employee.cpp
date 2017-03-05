@@ -17,6 +17,8 @@ Employee::Employee(string     fName,
     this->paystubs          = new QList<Paystub*>();
 }
 
+
+
 Employee::~Employee()
 {
     if (address != NULL) {

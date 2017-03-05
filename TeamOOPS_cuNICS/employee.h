@@ -29,6 +29,7 @@ public:
              Role*      role,
              Salary*    salary,
              int        sin);
+
     ~Employee();
 
     //----- Getters -----

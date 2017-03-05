@@ -3,6 +3,7 @@
 
 #include "employee.h"
 #include <QSqlDatabase>
+#include "databasecontroller.h"
 
 class ListEmployeesControl
 {
@@ -17,7 +18,7 @@ public:
     ListEmployeesControl(QSqlDatabase*);
     ~ListEmployeesControl();
     int  setFilter(User*);
-    int  displayEmployeeList();
+    int displayEmployeeList();
     bool toAttributeList(QMap<string, string>* list);
 };
 

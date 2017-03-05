@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "databasecontroller.h"
+#include "listemployeescontrol.h"
 
 
 void TestingDatabase();
@@ -32,5 +33,12 @@ void TestingDatabase(){
 
         qDebug() << id << username<< password<< name;
     }
+//    dbControl.close();
+}
+
+void TestingEmlpoyeeList(){
+
+
+
 }
 
