@@ -29,7 +29,7 @@ int ListEmployeesControl::setFilter(User* filter)
 int ListEmployeesControl::getAllEmployees()
 {
     employees = new QList<Employee*>();
-    QSqlQuery query("SELECT * FROM employee");
+    QSqlQuery query("SELECT * FROM employee;");
 
     int indexEmployeeID = query.record().indexOf("employeeid");
     int indexFName = query.record().indexOf("firstname");
@@ -47,6 +47,35 @@ int ListEmployeesControl::getAllEmployees()
     int indexBankName = query.record().indexOf("bankname");
     int indexSinNumber = query.record().indexOf("sinnumber");
     int i = 0;
+
+//    while (query.next()) {
+
+//            int id = query.value(0).toInt();
+//            string Fname = query.value(indexFName).toString().toStdString();
+//            string Lname = query.value(indexLName).toString().toStdString();
+//            int employeeNumber = query.value(indexEmployeeID).toInt();
+//            PhoneNumber *phoneNumber = new PhoneNumber();
+//            string street = query.value(indexStreet).toString().toStdString();
+//            string streetnumber = query.value(indexStreetNumber).toString().toStdString();
+//            string city = query.value(indexCity).toString();
+//            string province = query.value(indexProvince).toString();
+//            string country = query.value(indexCountry).toString();
+//            string postalcode = query.value(indexPostalCode).toString();
+//            Address addr = new Address(street,streetnumber, city, province, country, postalcode);
+
+//            //Bank Info
+//            int accountnumber = query.value(indexAccountNumber).toInt();
+//            int banknumber = query.value(indexBankNumber).toInt();
+//            int branchnumber = query.value(indexBranchNumber).toInt();
+//            string bankname = query.value(indexBankName).toString();
+//            int sin = query.value(indexSinNumber).toInt();
+
+//            BankInformation bankinfo = new BankInformation(accountnumber, banknumber, branchnumber, bankname, Fname, Lname);
+
+
+
+//            employees.append(new Employee(Fname, Lname, id,phoneNumber, addr, bankinfo, sin));
+//        }
     while (query.next()){
         employees->append(
                     new Employee(

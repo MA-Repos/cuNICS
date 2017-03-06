@@ -78,6 +78,4 @@ FORMS    += mainwindow.ui \
     employeeroleselector.ui \
     raiseinputform.ui
 
-RESOURCES += \
-    pics.qrc
 

@@ -27,6 +27,7 @@ void payrollDialog::on_PRGT_button_2_clicked()
     PayrollGenTool* payDialog = new PayrollGenTool();
     payDialog->setModal(true);
     payDialog->exec();
+
 }
 
 void payrollDialog::on_EditEmpInfo_button_clicked()
@@ -41,4 +42,5 @@ void payrollDialog::on_LAE_button_clicked()
     ListEmployeesControl* listemp = new ListEmployeesControl(this);
      listemp->displayEmployeeList();
      qDebug() << "qstr" << endl;
+
 }
