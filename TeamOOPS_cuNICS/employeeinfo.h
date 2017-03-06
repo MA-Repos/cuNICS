@@ -19,6 +19,11 @@ public:
     ~employeeInfo();
 
         void displayEmployeeInfo();
+        void updateEmployeeInfo();
+
+private slots:
+
+        void on_updateButton_clicked();
 
 private:
     Ui::employeeInfo *ui;

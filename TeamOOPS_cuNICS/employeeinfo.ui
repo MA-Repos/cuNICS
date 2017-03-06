@@ -557,7 +557,7 @@ text-align: center;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="updateButton">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -889,7 +889,7 @@ text-align: center;</string>
    <zorder>layoutWidget_5</zorder>
    <zorder>layoutWidget_6</zorder>
    <zorder>title_5</zorder>
-   <zorder>pushButton_4</zorder>
+   <zorder>updateButton</zorder>
    <zorder>deleteButton</zorder>
   </widget>
   <zorder>frame_3</zorder>

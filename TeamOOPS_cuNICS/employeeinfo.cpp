@@ -4,6 +4,7 @@
 #include "address.h"
 #include "phonenumber.h"
 #include "bankinformation.h"
+#include "editemployeeinfocontrol.h"
 #include "salary.h"
 #include "status.h"
 #include "role.h"
@@ -57,25 +58,7 @@ void employeeInfo::displayEmployeeInfo()
     int eID = this->employee->getEmployeeNumber();
     int sin = this->employee->getSIN();
 
-    int roles = this->employee->getNumRoles();
-     qDebug() << roles;
-    for(int i =0; i< roles; i++){
-        Role* tempRole = this->employee->getRoleAtIndex(i);
-        Status* status = tempRole->getStatus();
-        QString roleType = tempRole->getRole();
-        QString employmentType =  status->getEmploymentType();
-        QString employmenStatus= status->getEmploymentStatus();
-        qDebug() << roleType;
-        qDebug() << employmentType;
-        qDebug() << employmenStatus;
-        const int currentRow2 =  ui->rolesTable->rowCount();
-        ui->rolesTable->setRowCount(currentRow2 + 1);
-        ui->rolesTable->setItem(currentRow2, 0, new QTableWidgetItem(roleType));
-        ui->rolesTable->setItem(currentRow2, 1, new QTableWidgetItem(employmentType));
-        ui->rolesTable->setItem(currentRow2, 2, new QTableWidgetItem(employmenStatus));
 
-
-    }
 
 
     //Salary* salaryInfo = this->employee->get
@@ -110,15 +93,89 @@ void employeeInfo::displayEmployeeInfo()
     ui->label_bankName->setText(bankName);
 
 //Set DeductionPercenatge
-ui->label_deductionPerc->setText(QString::number(accountNum));
+    ui->label_deductionPerc->setText(QString::number(accountNum));
 
 //Set SIN
     ui->label_sin->setText(QString::number(sin));
 
 //Set Roles
-     //Role* role = this->employee->getRole();
+    int roles = this->employee->getNumRoles();
+     qDebug() << roles;
+    for(int i =0; i< roles; i++){
+        Role* tempRole = this->employee->getRoleAtIndex(i);
+        Status* status = tempRole->getStatus();
+        QString roleType = tempRole->getRole();
+        QString employmentType =  status->getEmploymentType();
+        QString employmenStatus= status->getEmploymentStatus();
+        qDebug() << roleType;
+        qDebug() << employmentType;
+        qDebug() << employmenStatus;
+        const int currentRow2 =  ui->rolesTable->rowCount();
+        ui->rolesTable->setRowCount(currentRow2 + 1);
+        ui->rolesTable->setItem(currentRow2, 0, new QTableWidgetItem(roleType));
+        ui->rolesTable->setItem(currentRow2, 1, new QTableWidgetItem(employmentType));
+        ui->rolesTable->setItem(currentRow2, 2, new QTableWidgetItem(employmenStatus));
+
+
+    }
+
+
+}
+
+void employeeInfo::updateEmployeeInfo(){
+
+    // GET USER INFO
+
+    // SetFirstName LastName
+    QString Fname       =  ui->label_Fname->text();
+    QString Lname       =  ui->label_Lname->text();
+
+    //SetEmployeeID
+    int eID             = ui->label_eID->text().toInt();
+
+    // Address
+    QString street      =  ui->label_street->text();
+    int streetNum       = (ui->label_streetNum->text()).toInt();
+    QString city        = ui->label_city->text();
+    QString province    = ui->label_province->text();
+    QString country     = ui->label_country->text();
+    QString postalCode  = ui->label_postalCode->text();
+
+
+
+    //PhoneNumber
+    QString countryCode = ui->label_countryCode->text();
+    QString localCode   = ui->label_localCode->text();
+    QString localNum    = ui->label_localNum->text();
+    QString extension   = ui->label_extension->text();
+
+           //BankInformation
+    int     accountNum  =  ui->label_accountNum->text().toInt();
+    int     bankNum     =  ui->label_bankNum->text().toInt();
+    int     branchNum   =  ui->label_branchNum->text().toInt();
+    QString bankName    =  ui->label_bankName->text();
+
+    //SIN
+    int sin             = ui->label_sin->text().toInt();
+
+    PhoneNumber* phoneNum     = new PhoneNumber(countryCode,localCode,localNum,extension);
+    Address* address          = new Address(street,streetNum,city,province,country,postalCode);
+    BankInformation* bankInfo = new BankInformation(accountNum,bankNum,branchNum,bankName,Fname,Lname);
+
+
+    //create new Employee with Updated Info
+    Employee* eTemp = new Employee(Fname,Lname,eID,phoneNum,address,bankInfo,sin);
+    EditEmployeeInfoControl* eControl = new EditEmployeeInfoControl();
+    eControl->updateFunctionCaller(eTemp);
 
 
 }
 
 
+
+
+
+void employeeInfo::on_updateButton_clicked()
+{
+    this->updateEmployeeInfo();
+}

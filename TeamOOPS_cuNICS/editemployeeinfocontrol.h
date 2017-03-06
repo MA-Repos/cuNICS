@@ -16,14 +16,16 @@ private:
     int getEmployee(int);
     int notifySuccess();
     Employee* employee;
+    int updateEmployeeInfo(Employee*);
 
 
 public:
     EditEmployeeInfoControl();
     ~EditEmployeeInfoControl();
 
-    int updateEmployeeInfo();
+
     int getEmployeeInfo(int);
+    void updateFunctionCaller(Employee*);
 
 };
 
