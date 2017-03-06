@@ -4,7 +4,8 @@
 //TODO: remove
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <listemployeescontrol.h>
+#include "listemployeescontrol.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,8 +28,16 @@ void MainWindow::on_pushButton_clicked()
 //    while (query.next()){
 //        ui->label->setText(query.value(0).toString());
 //    }
-    ListEmployeesControl* l = new ListEmployeesControl();
+    //Employee em = Employee(QString("21"), "44", 12, NULL, NULL, NULL, 555);
+
+    ListEmployeesControl* l = new ListEmployeesControl(this);
     l->displayEmployeeList();
 
-    ui->label->adjustSize();
+    //ui->label->setText(em.getLName());
+    //ui->label->adjustSize();
+}
+
+void MainWindow::display(QString s)
+{
+    ui->label->setText(s);
 }

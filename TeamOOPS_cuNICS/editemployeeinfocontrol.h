@@ -2,20 +2,19 @@
 #define EDITEMPLOYEEINFOCONTROL_H
 
 #include "employee.h"
-#include <QSqlDatabase>
 #include <string.h>
 
 class EditEmployeeInfoControl
 {
 
 private:
-    User* employee;
-    QSqlDatabase* db;
+    Employee* employee;
     int notifySuccess();
 
 public:
-    EditEmployeeInfoControl(User*, QSqlDatabase*);
+    EditEmployeeInfoControl();
     ~EditEmployeeInfoControl();
+    int getEmployee(int);
     int updateEmployeeInfo();
 };
 

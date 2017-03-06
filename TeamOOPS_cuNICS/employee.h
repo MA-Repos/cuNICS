@@ -24,16 +24,16 @@ private:
     QList<Paystub*>*    paystubs;
 
 public:
-    Employee(QString             fName,
-             QString             lName,
+    Employee(QString            fName,
+             QString            lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,
              BankInformation*   bankInformation,
              int                sin);
 
-    Employee(QString             fName,
-             QString             lName,
+    Employee(QString            fName,
+             QString            lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,

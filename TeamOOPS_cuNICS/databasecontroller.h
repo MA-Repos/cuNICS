@@ -5,14 +5,15 @@
 
 class DatabaseController
 {
-public:
-    DatabaseController();
-    QSqlQuery QueryDatabase(QString q);
-    ~DatabaseController();
-
 private:
     QSqlDatabase db;
     QSqlQuery *query;
+
+public:
+    DatabaseController();
+    ~DatabaseController();
+    int connectDatabase(QString);
+    QSqlQuery queryDatabase(QString q);
 };
 
 #endif // DATABASECONTROLLER_H

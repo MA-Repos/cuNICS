@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     listemployeescontrol.cpp \
     applysalarydeductioncontrol.cpp \
     payrollgenerationtool.cpp \
-    manageemployeesalarycontrol.cpp
+    manageemployeesalarycontrol.cpp \
+    databasecontroller.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -50,6 +51,7 @@ HEADERS  += mainwindow.h \
     listemployeescontrol.h \
     applysalarydeductioncontrol.h \
     payrollgenerationtool.h \
-    manageemployeesalarycontrol.h
+    manageemployeesalarycontrol.h \
+    databasecontroller.h
 
 FORMS    += mainwindow.ui

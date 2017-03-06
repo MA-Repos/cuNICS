@@ -1,39 +1,36 @@
 #include "applysalarydeductioncontrol.h"
+#include <QSqlQuery>
 
-ApplySalaryDeductionControl::ApplySalaryDeductionControl(User *employee)
+ApplySalaryDeductionControl::ApplySalaryDeductionControl()
 {
-    this->employee = employee;
+
 }
 
 ApplySalaryDeductionControl::~ApplySalaryDeductionControl()
 {
-    this->employee = NULL;
+
 }
 
-//Need to figure out if this will be called at the end of the constructor or
-//by the control object that created ApplySalaryDeductionControl object
-bool ApplySalaryDeductionControl::createSalaryDeductionOption()
+int ApplySalaryDeductionControl::setDeductionPercentage(int employeeID, float deduction)
 {
-    //should create a salary deduction option boundary object
-    //needs to pass a reference to itself when it is created
-    //so that the boundary object can setDeductionPercentage()
-    return true;
+    QSqlQuery query;
+    QString queryString = "UPDATE employmentdetails "
+                          "SET deductionpercentage = (:deduction) "
+                          "WHERE employeeid = (:employeeID)";
+    query.prepare(queryString);
+    query.bindValue(":deduction",  QString::number(deduction));
+    query.bindValue(":employeeID", QString::number(employeeID));
+    query.exec();
+
+    notifySuccess();
+
+    return 0;
 }
 
-bool ApplySalaryDeductionControl::updateSalaryInDatabase(float deduction)
-{
-    //Needs to call UPDATE in the db control object
-    notifyUserSuccess();
-    return true;
-}
-
-bool ApplySalaryDeductionControl::notifyUserSuccess()
+int ApplySalaryDeductionControl::notifySuccess()
 {
     //Need to create a success notification object here
     return true;
 }
 
-bool ApplySalaryDeductionControl::setDeductionPercentage(float deduction)
-{
-    return updateSalaryInDatabase(deduction);
-}
+

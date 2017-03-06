@@ -9,14 +9,14 @@ using namespace std;
 class PhoneNumber
 {
 private:
-    int countryCode;
-    int areaCode;
-    int localNumber;
-    int extension;
+    QString countryCode;
+    QString areaCode;
+    QString localNumber;
+    QString extension;
 
 public:
     PhoneNumber();
-    PhoneNumber(int countryCode, int areaCode, int localNumber, int extension);
+    PhoneNumber(QString countryCode, QString areaCode, QString localNumber, QString extension);
     ~PhoneNumber();
 
     //----- Getters -----

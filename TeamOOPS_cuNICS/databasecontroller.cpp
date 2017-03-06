@@ -14,7 +14,7 @@ DatabaseController::DatabaseController(){
     }
 }
 
-QSqlQuery DatabaseController::QueryDatabase(QString q){
+QSqlQuery DatabaseController::queryDatabase(QString q){
 
     QSqlQuery query;
     query.exec(q);

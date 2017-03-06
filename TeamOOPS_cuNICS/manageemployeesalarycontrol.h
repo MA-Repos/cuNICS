@@ -4,23 +4,21 @@
 #include "user.h"
 #include "role.h"
 #include <qlist.h>
-#include <QSqlDatabase>
 
 class ManageEmployeeSalaryControl
 {
 private:
     Role* role;
-    float amount;
-    float percentage;
-    QSqlDatabase* db;
-    int getEmployeesByRole();
-    int saveEmployees();
+    float salary;
+    int getCurrentSalary();
+    int updateSalary();
     int notifySuccess();
 
 public:
-    ManageEmployeeSalaryControl(Role*, float, float, QSqlDatabase*);
+    ManageEmployeeSalaryControl(Role*);
     ~ManageEmployeeSalaryControl();
-    int applyRaise();
+    int applyRaiseAmount(float);
+    int applyRaisePercentage(float);
 };
 
 #endif // MANAGEEMPLOYEESALARYCONTROL_H
