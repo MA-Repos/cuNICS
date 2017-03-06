@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>598</width>
-    <height>574</height>
+    <height>230</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,17 +92,6 @@ border: 8px double  #080608;
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QPushButton" name="EditEmpInfo_button">
-       <property name="styleSheet">
-        <string notr="true">
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>EditEmployeeInfo</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="manageSalaries_button">
        <property name="styleSheet">
@@ -133,32 +122,6 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>List All Employees</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>10</y>
-      <width>159</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Logged In as</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="fullname">
-       <property name="text">
-        <string>FullName</string>
        </property>
       </widget>
      </item>

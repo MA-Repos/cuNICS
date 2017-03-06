@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QList>
 #include "employee.h"
+#include "editemployeeinfocontrol.h"
 #include <QModelIndex>
 
 namespace Ui {
@@ -29,9 +30,11 @@ private slots:
 
 
 
+
 private:
     Ui::EmployeeList *ui;
-     QList<Employee*>*   employees;
+    QList<Employee*>*   employees;
+
 };
 
 #endif // EMPLOYEELIST_H

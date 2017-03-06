@@ -3,20 +3,28 @@
 
 #include "employee.h"
 #include <QSqlDatabase>
+#include "employeelist.h"
+#include "employee.h"
+#include "employeeinfo.h"
 #include <string.h>
 
 class EditEmployeeInfoControl
 {
 
 private:
-    User* employee;
-    QSqlDatabase* db;
+
+    int getEmployee(int);
     int notifySuccess();
+    Employee* employee;
+
 
 public:
-    EditEmployeeInfoControl(User*, QSqlDatabase*);
+    EditEmployeeInfoControl();
     ~EditEmployeeInfoControl();
+
     int updateEmployeeInfo();
+    int getEmployeeInfo(int);
+
 };
 
 #endif // EDITEMPLOYEEINFOCONTROL_H

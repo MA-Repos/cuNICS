@@ -27,15 +27,27 @@
     <rect>
      <x>20</x>
      <y>0</y>
-     <width>201</width>
+     <width>261</width>
      <height>231</height>
     </rect>
+   </property>
+   <property name="accessibleDescription">
+    <string notr="true"/>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>4</number>
+   </property>
+   <property name="midLineWidth">
+    <number>4</number>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
    <column>
     <property name="text">

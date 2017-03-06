@@ -21,7 +21,7 @@ public:
     ~Role();
 
     //----- Getters -----
-    RoleType    getRole();
+    QString     getRole();
     Status*     getStatus();
 
     //----- Setters -----

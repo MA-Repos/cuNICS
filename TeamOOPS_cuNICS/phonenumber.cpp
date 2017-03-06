@@ -4,10 +4,10 @@
 
 PhoneNumber::PhoneNumber()
 {
-    PhoneNumber(0,0,0,0);
+    PhoneNumber(" "," "," "," ");
 }
 
-PhoneNumber::PhoneNumber(int countryCode, int areaCode, int localNumber, int extension)
+PhoneNumber::PhoneNumber(QString countryCode, QString areaCode, QString localNumber, QString extension)
 {
     this->countryCode   = countryCode;
     this->areaCode      = areaCode;
@@ -24,13 +24,28 @@ PhoneNumber::~PhoneNumber()
 QString PhoneNumber::getPhoneNumberAsQString()
 {
     //convert the phone number to a string
-    ostringstream convert;
-    convert << countryCode;
-    convert << areaCode;
-    convert << localNumber;
-    convert << extension;
+   return this->countryCode+
+    this->areaCode+
+    this->localNumber+
+    this->extension;
 
-    return QString(convert.str().c_str());
+
+}
+
+QString PhoneNumber::getLocalNumber(){
+return this->localNumber;
+}
+
+QString PhoneNumber::getCountryCode(){
+return this->countryCode;
+}
+
+QString PhoneNumber::getExtension(){
+return this->extension;
+}
+
+QString PhoneNumber::getLocalCode(){
+return this->areaCode;
 }
 
 

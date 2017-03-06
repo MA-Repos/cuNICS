@@ -26,9 +26,22 @@ Role::~Role()
 }
 
 //----- Getters -----
-RoleType Role::getRole()
+QString Role::getRole()
 {
-    return roleType;
+    switch(roleType)
+    {
+        case TA:
+            return "TA";
+        case RA:
+            return "RA";
+        case FACULTY:
+            return "Faculty";
+        case STAFF:
+            return "Staff";
+
+        default:
+        return "No Role";
+    }
 }
 
 Status* Role::getStatus()
