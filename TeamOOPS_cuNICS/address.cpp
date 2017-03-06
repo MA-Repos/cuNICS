@@ -6,12 +6,12 @@ Address::Address()
     Address("None", 0, "None", "None", "None", "None");
 }
 
-Address::Address(string street,
+Address::Address(QString street,
                  int    streetNumber,
-                 string city,
-                 string province,
-                 string country,
-                 string postalCode)
+                 QString city,
+                 QString province,
+                 QString country,
+                 QString postalCode)
 {
     this->street        = street;
     this->streetNumber  = streetNumber;
@@ -27,7 +27,7 @@ Address::~Address()
 }
 
 //----- Setters -----
-bool Address::setStreet(string street)
+bool Address::setStreet(QString street)
 {
     this->street = street;
     return true;
@@ -39,32 +39,32 @@ bool Address::setStreetNumber(int streetNumber)
     return true;
 }
 
-bool Address::setCity(string city)
+bool Address::setCity(QString city)
 {
     this->city = city;
     return true;
 }
 
-bool Address::setProvince(string province)
+bool Address::setProvince(QString province)
 {
     this->province = province;
     return true;
 }
 
-bool Address::setCountry(string country)
+bool Address::setCountry(QString country)
 {
     this->country = country;
     return true;
 }
 
-bool Address::setPostalCode(string postalCode)
+bool Address::setPostalCode(QString postalCode)
 {
     this->postalCode = postalCode;
     return true;
 }
 
 //----- Getters -----
-string Address::getStreet()
+QString Address::getStreet()
 {
     return street;
 }
@@ -74,22 +74,22 @@ int Address::getStreetNumber()
     return streetNumber;
 }
 
-string  Address::getCity()
+QString  Address::getCity()
 {
     return city;
 }
 
-string Address::getProvince()
+QString Address::getProvince()
 {
     return province;
 }
 
-string Address::getCountry()
+QString Address::getCountry()
 {
     return country;
 }
 
-string Address::getPostalCode()
+QString Address::getPostalCode()
 {
     return postalCode;
 }

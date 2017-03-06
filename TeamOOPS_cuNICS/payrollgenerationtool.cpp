@@ -1,22 +1,44 @@
 #include "payrollgenerationtool.h"
+#include <QSqlQuery>
+#include<QSqlRecord>
+#include <QSqlError>
+#include <QDebug>
 
-PayrollGenerationTool::PayrollGenerationTool(QSqlDatabase* db)
+PayrollGenerationTool::PayrollGenerationTool()
 {
-    this->db = db;
     this->paystubs = NULL;
     this->employees = NULL;
 }
 
 int PayrollGenerationTool::getAllEmployees()
 {
-    NullCheckNegOne(db);
     this->employees = new QList<User*>;
+    QSqlQuery query("SELECT * FROM employee");
+    qDebug() << query.lastError();
+
+    int indexEmployeeID =    query.record().indexOf("employeeid");
+    int indexFName =         query.record().indexOf("firstname");
+    int indexLName =         query.record().indexOf("lastname");
+
+    while (query.next()){
+        Employee* employee = new Employee(query.value(indexFName).toString(),
+                                          query.value(indexLName).toString(),
+                                          query.value(indexEmployeeID).toInt(),
+                                          NULL,
+                                          NULL,
+                                          NULL,
+                                          0);
+        employees->append(employee);
+    }
 
     return 0;
 }
 
-int PayrollGenerationTool::generatePaystubs()
+int PayrollGenerationTool::generatePaystubs(Date* payDate)
 {
+    this->getAllEmployees();
+
+
     return 0;
 }
 
@@ -30,15 +52,3 @@ int PayrollGenerationTool::notifySuccess()
     return 0;
 }
 
-//private:
-//    QList<User*>* employees;
-//    Paystub* paystub;
-//    QSqlDatabase* db;
-
-//public:
-//    PayrollGenerationTool(QSqlDatabase*);
-//    ~PayrollGenerationTool();
-//    int getAllEmployees(QList<User*>*);
-//    int generatePaystubs();
-//    int viewSummary();
-//    int notifySuccess();

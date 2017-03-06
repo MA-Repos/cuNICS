@@ -6,19 +6,13 @@
 class ApplySalaryDeductionControl
 {
 private:
-    User* employee;
-    //TODO: Add a reference to DBControl Object
-
-    bool createSalaryDeductionOption(); // May need to change this based on what the boundary object name is
-    bool updateSalaryInDatabase(float deduction);
-    bool notifyUserSuccess();
+    int notifySuccess();
 
 public:
-    ApplySalaryDeductionControl(User* employee);
+    ApplySalaryDeductionControl();
     ~ApplySalaryDeductionControl();
 
-    bool setDeductionPercentage(float deduction);
-
+    int setDeductionPercentage(int employeeID, float deduction);
 };
 
 #endif // APPLYSALARYDEDUCTIONCONTROL_H

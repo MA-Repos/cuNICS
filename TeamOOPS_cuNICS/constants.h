@@ -17,14 +17,6 @@ using namespace std;
 #define NullCheckFalse(var)   NullCheck(var, false)
 #define NullCheckNull(var)    NullCheck(var, NULL)
 
-template <typename T>
-string varToString ( T var )
-{
-    stringstream ss;
-    ss << var;
-    return ss.str();
-}
-
 enum RoleType {
     NO_ROLE,
     TA,

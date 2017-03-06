@@ -24,16 +24,16 @@ private:
     QList<Paystub*>*    paystubs;
 
 public:
-    Employee(string             fName,
-             string             lName,
+    Employee(QString             fName,
+             QString             lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,
              BankInformation*   bankInformation,
              int                sin);
 
-    Employee(string             fName,
-             string             lName,
+    Employee(QString             fName,
+             QString             lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,
@@ -60,8 +60,8 @@ public:
     Paystub*    getLastPaystub();
     Paystub*    getPaystubAtIndex(int i);
     bool        addPaystub(Paystub* newStub);
-    bool        toAttributeList(QMap<string, string>* list);
-    string      toString();
+    bool        toAttributeList(QMap<QString, QString> *list);
+    QString     toQString();
 };
 
 #endif // EMPLOYEE_H

@@ -1,35 +1,68 @@
 #include "manageemployeesalarycontrol.h"
-#include "constants.h"
+#include <QSqlQuery>
+//#include "constants.h"
 
-// parameters need motifying
-ManageEmployeeSalaryControl::ManageEmployeeSalaryControl(Role*         role,
-                                                         float         amount,
-                                                         float         percentage,
-                                                         QSqlDatabase* db)
+ManageEmployeeSalaryControl::ManageEmployeeSalaryControl(Role* role)
 {
     this->role = role;
-    this->amount = amount;
-    this->percentage = percentage;
-    this->db = db;
 }
 
-int ManageEmployeeSalaryControl::getEmployeesByRole()
+int ManageEmployeeSalaryControl::applyRaiseAmount(float amount)
 {
-    NullCheckNegOne(db);
-    NullCheckNegOne(role);
+    this->getCurrentSalary();
+    this->salary += amount;
+    this->updateSalary();
+    notifySuccess();
 
     return 0;
 }
 
-int ManageEmployeeSalaryControl::saveEmployees()
+int ManageEmployeeSalaryControl::applyRaisePercentage(float percentage)
 {
-    NullCheckNegOne(db);
+    this->getCurrentSalary();
+    this->salary *= (1 + percentage);
+    this->updateSalary();
+    this->notifySuccess();
 
     return 0;
 }
 
-int ManageEmployeeSalaryControl::applyRaise()
+int ManageEmployeeSalaryControl::getCurrentSalary()
 {
+    QSqlQuery query;
+    QString queryString = "SELECT salary"
+                          "FROM   employmentdetails "
+                          "WHERE  roletype = (:roleType) "
+                          "AND    employmentstatus = (:employmentStatus) "
+                          "AND    employmentType = (:employmentType)";
+
+    query.prepare(queryString);
+    query.bindValue(":roleType",       role->getRole());
+    query.bindValue(":employeeStatus", role->getStatus()->getEmploymentStatus());
+    query.bindValue(":employeeType",   role->getStatus()->getEmploymentType());
+    query.exec();
+
+    salary = query.value(0).toFloat();
+
+    return 0;
+}
+
+int ManageEmployeeSalaryControl::updateSalary()
+{
+    QSqlQuery query;
+    QString queryString = "UPDATE employmentdetails "
+                          "SET    salary = (:amount) "
+                          "WHERE  roletype = (:roleType) "
+                          "AND    employmentstatus = (:employmentStatus) "
+                          "AND    employmentType = (:employmentType)";
+
+    query.prepare(queryString);
+    query.bindValue(":amount",         QString::number(this->salary));
+    query.bindValue(":roleType",       role->getRole());
+    query.bindValue(":employeeStatus", role->getStatus()->getEmploymentStatus());
+    query.bindValue(":employeeType",   role->getStatus()->getEmploymentType());
+    query.exec();
+
     return 0;
 }
 

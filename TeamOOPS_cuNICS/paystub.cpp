@@ -61,7 +61,7 @@ float Paystub::getYTDTaxDeductions()
     return yearToDateTaxDeductions;
 }
 
-string Paystub::getEmployeeName()
+QString Paystub::getEmployeeName()
 {
     return employee->getFullName();
 }

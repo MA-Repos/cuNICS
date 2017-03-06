@@ -3,22 +3,21 @@
 
 #include "user.h"
 #include "paystub.h"
+#include "date.h"
 #include <qlist.h>
-#include <QSqlDatabase>
 
 class PayrollGenerationTool
 {
 private:
     QList<User*>* employees;
     Paystub* paystubs;
-    QSqlDatabase* db;
     int getAllEmployees();
     int notifySuccess();
 
 public:
-    PayrollGenerationTool(QSqlDatabase*);
+    PayrollGenerationTool();
     ~PayrollGenerationTool();
-    int generatePaystubs();
+    int generatePaystubs(Date*);
     int viewSummary();
 };
 
