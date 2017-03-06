@@ -27,8 +27,8 @@ public:
 
     //----- Getters -----
     bool                isEmployed();
-    EmploymentStatus    getEmploymentStatus();
-    EmploymentType      getEmploymentType();
+    QString    getEmploymentStatus();
+    QString      getEmploymentType();
     Date*               getStartDate();
     Date*               getEndDate();
 

@@ -3,7 +3,6 @@
 #include "employee.h"
 #include "user.h"
 #include <QString>
-#include <employeeinfo.h>
 #include <iostream>
 
 
@@ -30,19 +29,9 @@ void EmployeeList::callDisplay(){
 
 
 void EmployeeList::display_List(){
- qDebug() << "called" << endl;
 
- for (int i =0; i < 10; i++){
-         //QString name = QString::fromStdString((*i)->getFullName());
-         //QString eID = QString::number((*i)->getEmployeeNumber());
 
-         const int currentRow =  ui->tableList->rowCount();
-          ui->tableList->setRowCount(currentRow + 1);
 
-         ui->tableList->setItem(currentRow, 0, new QTableWidgetItem("number"));
-         ui->tableList->setItem(currentRow, 1, new QTableWidgetItem("name"));
-
- }
     // If the List is Null, return
         if (!this->employees)
             return;
@@ -53,12 +42,10 @@ void EmployeeList::display_List(){
 
         QString name = (*i)->getFullName();
         int eID  = (*i)->getEmployeeNumber();
-        qDebug() << "FullName: " +name+ " EmployeeNumber: " +eID << endl;
         const int currentRow2 =  ui->tableList->rowCount();
-         qDebug() << "currentRow: " +QString::number(currentRow2)<< endl;
         ui->tableList->setRowCount(currentRow2 + 1);
-        ui->tableList->setItem(currentRow2, 0, new QTableWidgetItem("eID"));
-        ui->tableList->setItem(currentRow2, 1, new QTableWidgetItem("name2"));
+        ui->tableList->setItem(currentRow2, 0, new QTableWidgetItem(QString::number(eID)));
+        ui->tableList->setItem(currentRow2, 1, new QTableWidgetItem(name));
 
     }
 
@@ -67,26 +54,11 @@ void EmployeeList::display_List(){
 
 void EmployeeList::on_tableList_cellDoubleClicked(int row, int column)
 {
+    QString tempInt = ui->tableList->item(row, 0)->text();
+    int eIDtemp = tempInt.toInt();
 
-    /*
-    QString employeeIDtemp = ui->Employee_List->item(row, 0)->text();
-    Employee* tempUser = NULL;
-
-
-    QList<Employee*>::iterator i;
-    for ((*i) = this->employees->begin(); (*i) != this->employees->end(); ++i){
-
-
-           QString eID = QString::number((*i)->getEmployeeNumber());
-
-           if( employeeIDtemp == "1234" ){
-
-           }
-
-
-       }
-
-       */
+    EditEmployeeInfoControl* eControl = new EditEmployeeInfoControl();
+    eControl->getEmployeeInfo(eIDtemp);
 
 }
 

@@ -169,19 +169,19 @@ bool Employee::toAttributeList(QMap<QString, QString>* list)
 QString Employee::toQString()
 {
     return
-    QString(this->getEmployeeNumber()) + "  " +
-    QString(this->getFName()) + "  " +
-    QString(this->getLName()) + "  " +
-    QString(this->getSIN()) + "  " +
-    QString(this->getPhoneNumber()->getPhoneNumberAsQString()) + "  " +
-    QString(this->getAddress()->getStreet()) + "  " +
-    QString(this->getAddress()->getStreetNumber()) + "  " +
-    QString(this->getAddress()->getCity()) + "  " +
-    QString(this->getAddress()->getProvince()) + "  " +
-    QString(this->getAddress()->getCountry()) + "  " +
-    QString(this->getAddress()->getPostalCode()) + "  " +
-    QString(this->getBankInformation()->getBankName()) + "  " +
-    QString(this->getBankInformation()->getBankNumber()) + "  " +
-    QString(this->getBankInformation()->getBranchNumber()) + "  " +
-    QString(this->getBankInformation()->getAccountNumber());
+        QString::number(this->getEmployeeNumber()) + "  " +
+        getFName() + "  " +
+        getLName() + "  " +
+        QString::number(this->getSIN()) + "  " +
+        QString(this->getPhoneNumber()->getPhoneNumberAsQString()) + "  " +
+        this->getAddress()->getStreet() + "  " +
+        QString::number(this->getAddress()->getStreetNumber()) + "  " +
+        this->getAddress()->getCity() + "  " +
+        this->getAddress()->getProvince() + "  " +
+        this->getAddress()->getCountry() + "  " +
+        this->getAddress()->getPostalCode() + "  " +
+        this->getBankInformation()->getBankName() + "  " +
+        QString::number(this->getBankInformation()->getBankNumber()) + "  " +
+        QString::number(this->getBankInformation()->getBranchNumber()) + "  " +
+        QString::number(this->getBankInformation()->getAccountNumber());
 }

@@ -1,7 +1,7 @@
 #ifndef PHONENUMBER_H
 #define PHONENUMBER_H
 
-#include <string>
+#include <QString>
 #include <QMap>
 
 using namespace std;
@@ -9,18 +9,22 @@ using namespace std;
 class PhoneNumber
 {
 private:
-    int countryCode;
-    int areaCode;
-    int localNumber;
-    int extension;
+    QString countryCode;
+    QString areaCode;
+    QString localNumber;
+    QString extension;
 
 public:
     PhoneNumber();
-    PhoneNumber(int countryCode, int areaCode, int localNumber, int extension);
+    PhoneNumber(QString countryCode, QString areaCode, QString localNumber, QString extension);
     ~PhoneNumber();
 
     //----- Getters -----
     QString getPhoneNumberAsQString();
+    QString getLocalNumber();
+    QString getCountryCode();
+    QString getExtension();
+    QString getLocalCode();
 };
 
 #endif // PHONENUMBER_H

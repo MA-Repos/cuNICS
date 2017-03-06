@@ -99,7 +99,6 @@ int ListEmployeesControl::getAllEmployees()
                                  )
                         );
         QString qstr = employees->at(i)->toQString();
-         qDebug() << qstr << endl;
         i++;
     }
 

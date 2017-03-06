@@ -6,9 +6,9 @@ Status::Status()
     Status(false, NO_STATUS, NO_TYPE, NULL, NULL);
 }
 
-Status::Status(bool                currentlyEmployed,
-               EmploymentStatus    employmentStatus,
-               EmploymentType      employmentType,
+Status::Status(bool               currentlyEmployed,
+               EmploymentStatus   employmentStatus,
+               EmploymentType     employmentType,
                Date               *startDate,
                Date               *endDate)
 {
@@ -35,14 +35,32 @@ bool Status::isEmployed()
     return currentlyEmployed;
 }
 
-EmploymentStatus Status::getEmploymentStatus()
+QString Status::getEmploymentStatus()
 {
-    return employmentStatus;
+    switch(employmentStatus)
+    {
+        case TERM:
+            return "Term";
+        case CONTINUING:
+            return "Continuing";
+
+        default:
+        return "No Status";
+    }
 }
 
-EmploymentType Status::getEmploymentType()
+QString Status::getEmploymentType()
 {
-    return employmentType;
+    switch(employmentType)
+    {
+        case FULL_TIME:
+            return "Full-Time";
+        case PART_TIME:
+            return "Part-Time";
+
+        default:
+        return "No Type";
+    }
 }
 
 Date* Status::getStartDate()
