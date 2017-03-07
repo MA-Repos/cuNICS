@@ -17,6 +17,7 @@ private:
     int notifySuccess();
     Employee* employee;
     int updateEmployeeInfo(Employee*);
+    int updateEmployeeRole(Employee*);
 
 
 public:

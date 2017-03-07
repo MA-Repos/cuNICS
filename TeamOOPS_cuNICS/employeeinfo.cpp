@@ -55,6 +55,7 @@ void employeeInfo::displayEmployeeInfo()
         int     branchNum  = bankInfo->getBranchNumber();
         QString bankName   = bankInfo->getBankName();
 
+
     int eID = this->employee->getEmployeeNumber();
     int sin = this->employee->getSIN();
 
@@ -101,7 +102,8 @@ void employeeInfo::displayEmployeeInfo()
 //Set Roles
     int roles = this->employee->getNumRoles();
      qDebug() << roles;
-    for(int i =0; i< roles; i++){
+
+     for(int i =0; i < roles; i++){
         Role* tempRole = this->employee->getRoleAtIndex(i);
         Status* status = tempRole->getStatus();
         QString roleType = tempRole->getRole();
@@ -116,13 +118,12 @@ void employeeInfo::displayEmployeeInfo()
         ui->rolesTable->setItem(currentRow2, 1, new QTableWidgetItem(employmentType));
         ui->rolesTable->setItem(currentRow2, 2, new QTableWidgetItem(employmenStatus));
 
-
     }
 
 
 }
 
-void employeeInfo::updateEmployeeInfo(){
+int employeeInfo::updateEmployeeInfo(){
 
     // GET USER INFO
 
@@ -162,11 +163,35 @@ void employeeInfo::updateEmployeeInfo(){
     Address* address          = new Address(street,streetNum,city,province,country,postalCode);
     BankInformation* bankInfo = new BankInformation(accountNum,bankNum,branchNum,bankName,Fname,Lname);
 
+    int numRoles =  ui->rolesTable->rowCount();
+    for(int i =0; i < numRoles; i++){
+       Role* tempRole = this->employee->getRoleAtIndex(i);
+       Status* status = tempRole->getStatus();
+       QString roleType = tempRole->getRole();
+       QString employmentType =  status->getEmploymentType();
+       QString employmenStatus= status->getEmploymentStatus();
+       qDebug() << roleType;
+       qDebug() << employmentType;
+       qDebug() << employmenStatus;
+       const int currentRow2 =  ui->rolesTable->rowCount();
+       ui->rolesTable->setRowCount(currentRow2 + 1);
+       ui->rolesTable->setItem(currentRow2, 0, new QTableWidgetItem(roleType));
+       ui->rolesTable->setItem(currentRow2, 1, new QTableWidgetItem(employmentType));
+       ui->rolesTable->setItem(currentRow2, 2, new QTableWidgetItem(employmenStatus));
+
+   }
+
+
 
     //create new Employee with Updated Info
+    qDebug() << Fname;
+    qDebug() << Lname;
+
     Employee* eTemp = new Employee(Fname,Lname,eID,phoneNum,address,bankInfo,sin);
     EditEmployeeInfoControl* eControl = new EditEmployeeInfoControl();
     eControl->updateFunctionCaller(eTemp);
+
+    return 1;
 
 
 }
@@ -178,4 +203,6 @@ void employeeInfo::updateEmployeeInfo(){
 void employeeInfo::on_updateButton_clicked()
 {
     this->updateEmployeeInfo();
+    if()
+    close();
 }

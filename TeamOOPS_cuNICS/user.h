@@ -17,7 +17,6 @@ protected:
 public:
     User();
     User(QString fName, QString lName);
-    User(QString fName, QString lName, QString username, QString password);
     ~User();
 
     //----- Setters -----

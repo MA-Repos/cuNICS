@@ -5,21 +5,17 @@ using namespace std;
 
 User::User()
 {
-    User("None", "None", "None", "None");
+    User("None", "None");
 }
 
 User::User(QString fName, QString lName)
 {
-    User(fName, lName, "None", "None");
-}
-
-User::User(QString fName, QString lName, QString username, QString password)
-{
     this->fName = fName;
     this->lName = lName;
-    this->username = username;
-    this->password = password;
+
 }
+
+
 
 User::~User()
 {

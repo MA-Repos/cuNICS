@@ -105,10 +105,19 @@ int EditEmployeeInfoControl::updateEmployeeInfo(Employee *employee)
     int EmployeeID = employee->getEmployeeNumber();
     string FName = employee->getFName().toStdString();
     string LName = employee->getLName().toStdString();
+    //string FName = "Ahmed";
+    //string LName = "Moe";
+
+//    qDebug() << LName;
     string Street = employee->getAddress()->getStreet().toStdString();
     int StreetNumber = employee->getAddress()->getStreetNumber();
     //
-    string phonenumber = employee->getPhoneNumber()->getPhoneNumberAsQString().toStdString();
+    string countryCode = employee->getPhoneNumber()->getCountryCode().toStdString();
+    string areaCode  = employee->getPhoneNumber()->getLocalCode().toStdString();
+    string localNum  = employee->getPhoneNumber()->getLocalNumber().toStdString();
+    string extension = employee->getPhoneNumber()->getExtension().toStdString();
+
+    //string phonenumber = employee->getPhoneNumber()->getPhoneNumberAsQString().toStdString();
     string City = employee->getAddress()->getCity().toStdString();
     string Province = employee->getAddress()->getProvince().toStdString();
     string Country = employee->getAddress()->getCountry().toStdString();
@@ -126,12 +135,37 @@ int EditEmployeeInfoControl::updateEmployeeInfo(Employee *employee)
     //    qDebug() << myQuery;
 
 
-    string sqlstr = "UPDATE employee SET firstname = \'" + FName + "\' ,lastname = \'" + LName + "\' , sinnumber = "+(QString::number(SinNumber).toStdString())+" , phonenumber = \'"+phonenumber+"\ ,street = \'"+Street+"\', streetnumber = "+(QString::number(StreetNumber).toStdString())+" ,city =\'"+City+"\' , province= \'"+Province+"\' ,country= \'"+Country+"\' ,postalcode= \'"+PostalCode+"\' ,bankname=\'"+BankName+"\' ,banknumber= "+(QString::number(BankNumber).toStdString())+", branchnumber= "+(QString::number(BranchNumber).toStdString())+", accountnumber= "+(QString::number(AccountNumber).toStdString())+" WHERE employeeid = "+(QString::number(EmployeeID).toStdString())+";";
+    string sqlstr = "UPDATE employee SET firstname = \'" + FName + "\' ,lastname = \'" + LName + "\' , sinnumber = "+(QString::number(SinNumber).toStdString())+" ,countrycode = \'"+countryCode+"\' ,areacode = \'"+areaCode+"\', localnumber = \'"+localNum+"\',extension = \'"+extension+"\',street = \'"+Street+"\', streetnumber = "+(QString::number(StreetNumber).toStdString())+" ,city =\'"+City+"\' , province= \'"+Province+"\' ,country= \'"+Country+"\' ,postalcode= \'"+PostalCode+"\' ,bankname=\'"+BankName+"\' ,banknumber= "+(QString::number(BankNumber).toStdString())+", branchnumber= "+(QString::number(BranchNumber).toStdString())+", accountnumber= "+(QString::number(AccountNumber).toStdString())+" WHERE employeeid = "+(QString::number(EmployeeID).toStdString())+";";
     QString sql = QString::fromStdString(sqlstr);
 
     QSqlQuery query(sql);
+    this->updateEmployeeRole(employee);
+
 
     return 0;
+}
+
+
+int EditEmployeeInfoControl::updateEmployeeRole(Employee *employee){
+
+    int EmployeeID = employee->getEmployeeNumber();
+    int numRoles   = employee->getNumRoles();
+
+    for (int i = 0; i < numRoles; i++){
+
+        QString roletype =          employee->getRoleAtIndex(i)->getRole();
+        Status *status =            employee->getRoleAtIndex(i)->getStatus();
+
+        QString employmentStatus =    status->getEmploymentStatus();
+        QString employmentType =      status->getEmploymentType();
+
+        QString sql =  QString("UPDATE employmentdetails SET roletype= %1 ,employmentstatus= %2 , employmenttype= %3 where employeeid = %4").arg(roletype, employmentStatus,employmentType, QString::number(EmployeeID));
+
+        QSqlQuery query(sql);
+
+    }
+    return 0;
+
 }
 
 
