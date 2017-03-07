@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     user.cpp \
     employee.cpp \
     payrollspecialist.cpp \
-    employeedialog.cpp \
     payrolldialog.cpp \
     bankinformation.cpp \
     date.cpp \
@@ -31,21 +30,17 @@ SOURCES += main.cpp\
     paystub.cpp \
     editemployeeinfocontrol.cpp \
     listemployeescontrol.cpp \
-    payrollgenerationtool.cpp \
     manageemployeesalarycontrol.cpp \
     employeeinfo.cpp \
     databasecontroller.cpp \
     employeelist.cpp \
-    payrollgentool.cpp \
-    displaysummary.cpp \
-    employeeroleselector.cpp \
-    raiseinputform.cpp
+    addroledialog.cpp \
+    applyraisedialog.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     employee.h \
     payrollspecialist.h \
-    employeedialog.h \
     payrolldialog.h \
     bankinformation.h \
     date.h \
@@ -58,25 +53,19 @@ HEADERS  += mainwindow.h \
     paystub.h \
     editemployeeinfocontrol.h \
     listemployeescontrol.h \
-    payrollgenerationtool.h \
     manageemployeesalarycontrol.h \
     employeeinfo.h \
     databasecontroller.h \
     employeelist.h \
-    payrollgentool.h \
-    displaysummary.h \
-    employeeroleselector.h \
-    raiseinputform.h
+    addroledialog.h \
+    applyraisedialog.h
 
 FORMS    += mainwindow.ui \
-    employeedialog.ui \
     payrolldialog.ui \
     employeeinfo.ui \
     employeelist.ui \
-    payrollgentool.ui \
-    displaysummary.ui \
-    employeeroleselector.ui \
-    raiseinputform.ui
+    addroledialog.ui \
+    applyraisedialog.ui
 
 
 RESOURCES += \

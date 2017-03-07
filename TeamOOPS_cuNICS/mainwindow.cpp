@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "employeedialog.h"
 #include "payrolldialog.h"
 #include "user.h"
 

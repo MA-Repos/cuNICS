@@ -1,7 +1,7 @@
 #ifndef DATE_H
 #define DATE_H
 
-#include <string>
+#include <QString>
 #include <QMap>
 
 using namespace std;
@@ -30,7 +30,7 @@ public:
     bool operator>=(Date&) const;
     bool operator==(Date&) const;
 
-    bool toAttributeList(QMap<string, string>* list);
+    QString toString();
 };
 
 #endif // DATE_H

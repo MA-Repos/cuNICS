@@ -19,6 +19,28 @@ Status::Status(bool               currentlyEmployed,
     this->endDate               = endDate;
 }
 
+Status::Status(bool               currentlyEmployed,
+               QString            employmentStatus,
+               QString            employmentType,
+               Date               *startDate,
+               Date               *endDate)
+{
+    this->currentlyEmployed     = currentlyEmployed;
+
+    if (employmentType == "Term")
+            this->employmentType = TERM;
+    else
+            this->employmentType = CONTINUING;
+
+    if (employmentStatus == "Full-Time")
+            this->employmentStatus = FULL_TIME;
+    else
+            this->employmentStatus = PART_TIME;
+
+    this->startDate             = startDate;
+    this->endDate               = endDate;
+}
+
 Status::~Status()
 {
     if (startDate != NULL) {
@@ -35,9 +57,9 @@ bool Status::isEmployed()
     return currentlyEmployed;
 }
 
-QString Status::getEmploymentStatus()
+QString Status::getEmploymentType()
 {
-    switch(employmentStatus)
+    switch(employmentType)
     {
         case TERM:
             return "Term";
@@ -45,13 +67,13 @@ QString Status::getEmploymentStatus()
             return "Continuing";
 
         default:
-        return "No Status";
+        return NULL;
     }
 }
 
-QString Status::getEmploymentType()
+QString Status::getEmploymentStatus()
 {
-    switch(employmentType)
+    switch(employmentStatus)
     {
         case FULL_TIME:
             return "Full-Time";
@@ -59,7 +81,7 @@ QString Status::getEmploymentType()
             return "Part-Time";
 
         default:
-        return "No Type";
+        return NULL;
     }
 }
 

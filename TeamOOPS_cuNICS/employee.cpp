@@ -1,8 +1,10 @@
 #include "employee.h"
 #include <QString>
 
-Employee::Employee(QString             fName,
-                   QString             lName,
+//using namespace std;
+
+Employee::Employee(QString            fName,
+                   QString            lName,
                    int                employeeNumber,
                    PhoneNumber*       phoneNumber,
                    Address*           address,
@@ -15,19 +17,17 @@ Employee::Employee(QString             fName,
     this->bankInformation   = bankInformation;
     this->sin               = sin;
 
-    this->paystubs          = new QList<Paystub*>();
     this->roles             = new QList<Role*>();
 }
 
-Employee::Employee(QString             fName,
-                   QString             lName,
+Employee::Employee(QString            fName,
+                   QString            lName,
                    int                employeeNumber,
                    PhoneNumber*       phoneNumber,
                    Address*           address,
                    BankInformation*   bankInformation,
                    int                sin,
-                   QList<Role*>*      roles,
-                   QList<Paystub*>*   paystubs) : User(fName, lName)
+                   QList<Role*>*      roles) : User(fName, lName)
 {
     this->employeeNumber    = employeeNumber;
     this->phoneNumber       = phoneNumber;
@@ -35,7 +35,6 @@ Employee::Employee(QString             fName,
     this->bankInformation   = bankInformation;
     this->sin               = sin;
 
-    this->paystubs          = paystubs;
     this->roles             = roles;
 }
 
@@ -50,10 +49,7 @@ Employee::~Employee()
     if (bankInformation != NULL) {
         delete bankInformation;
     }
-    if (paystubs != NULL) {
-        delete paystubs;
-    }
-    while (roles->isEmpty() != true) {
+    while (!roles->isEmpty()) {
         Role* tempRole = roles->last();
         roles->removeLast();
         delete tempRole;
@@ -112,62 +108,26 @@ bool Employee::addRole(Role* newRole)
     return false;
 }
 
-//----- Paystub Methods -----
-
-int Employee::getNumStubs()
+bool Employee::removeRole(QString roleType)
 {
-    return paystubs->size();
-}
-
-Paystub* Employee::getLastPaystub()
-{
-    if (paystubs->isEmpty()) {
-        return NULL;
+    for (int i=0;i<this->getNumRoles();i++){
+        if (this->getRoleAtIndex(i)->getRole() == roleType) {
+            this->roles->removeAt(i);
+            return true;
+        }
     }
-    return paystubs->last();
-}
 
-Paystub* Employee::getPaystubAtIndex(int i)
-{
-    if (i < 0 ||
-        i >= paystubs->size()) {
-        return NULL;
-    }
-    return paystubs->at(i);
-}
-
-bool Employee::addPaystub(Paystub *newStub)
-{
-    if (newStub != NULL) {
-        paystubs->append(newStub);
-        return true;
-    }
     return false;
-}
-
-bool Employee::toAttributeList(QMap<QString, QString>* list)
-{
-    list->insert("EmployeeNumber",  QString(this->getEmployeeNumber()));
-    list->insert("FirstName",       QString(this->getFName()));
-    list->insert("LastName",        QString(this->getLName()));
-    list->insert("SinNumber",       QString(this->getSIN()));
-    list->insert("PhoneNumber",     QString(this->getPhoneNumber()->getPhoneNumberAsQString()));
-    list->insert("Street",          QString(this->getAddress()->getStreet()));
-    list->insert("StreetNumber",    QString(this->getAddress()->getStreetNumber()));
-    list->insert("City",            QString(this->getAddress()->getCity()));
-    list->insert("Province",        QString(this->getAddress()->getProvince()));
-    list->insert("Country",         QString(this->getAddress()->getCountry()));
-    list->insert("PostalCode",      QString(this->getAddress()->getPostalCode()));
-    list->insert("BankName",        QString(this->getBankInformation()->getBankName()));
-    list->insert("BankNumber",      QString(this->getBankInformation()->getBankNumber()));
-    list->insert("BranchNumber",    QString(this->getBankInformation()->getBranchNumber()));
-    list->insert("AccountNumber",   QString(this->getBankInformation()->getAccountNumber()));
-
-    return true;
 }
 
 QString Employee::toQString()
 {
+    QString roleInfo = "";
+    for (int i=0; i<this->getNumRoles(); i++){
+        roleInfo += this->getRoleAtIndex(i)->toString();
+        roleInfo += "  ";
+    }
+
     return
         QString::number(this->getEmployeeNumber()) + "  " +
         getFName() + "  " +
@@ -183,5 +143,6 @@ QString Employee::toQString()
         this->getBankInformation()->getBankName() + "  " +
         QString::number(this->getBankInformation()->getBankNumber()) + "  " +
         QString::number(this->getBankInformation()->getBranchNumber()) + "  " +
-        QString::number(this->getBankInformation()->getAccountNumber());
+        QString::number(this->getBankInformation()->getAccountNumber()) +
+        roleInfo;
 }

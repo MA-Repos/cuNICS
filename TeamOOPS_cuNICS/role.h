@@ -18,11 +18,13 @@ public:
     Role();
     Role(RoleType roleType);
     Role(RoleType roleType, Status* status, Salary* salary);
+    Role(QString  roleType, Status* status, Salary* salary);
     ~Role();
 
     //----- Getters -----
     QString     getRole();
     Status*     getStatus();
+    Salary*     getSalary();
 
     //----- Setters -----
     bool setRoleType(RoleType roleType);
@@ -34,7 +36,7 @@ public:
     bool setRollContinuingPartTime(RoleType roleType, Date* startDate);
     bool setRollContinuingFullTime(RoleType roleType, Date* startDate);
 
-    bool toAttributeList(QMap<string, string>* list);
+    QString toString();
 };
 
 #endif // ROLE_H

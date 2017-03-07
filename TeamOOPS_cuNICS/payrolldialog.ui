@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(254, 108, 111);</string>
+    <string notr="true">background-color: rgb(255, 72, 66);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -72,7 +72,7 @@
    <property name="styleSheet">
     <string notr="true">#frame_2{
 border-radius: 84px 84px 84px 84px;
-background-color: rgb(255, 255, 255);
+background-color: rgb(39,39,39);
 border: 8px double  #080608;
 }</string>
    </property>
@@ -87,34 +87,23 @@ border: 8px double  #080608;
      <rect>
       <x>18</x>
       <y>10</y>
-      <width>342</width>
-      <height>95</height>
+      <width>194</width>
+      <height>62</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="1">
-      <widget class="QPushButton" name="manageSalaries_button">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="applyRaise">
        <property name="styleSheet">
         <string notr="true">
 color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
-        <string>ManageEmployeeSalaries</string>
+        <string>ApplySalaryRaise</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="PRGT_button_2">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(77, 139, 36);
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>PayRollGenerationTool</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
+     <item>
       <widget class="QPushButton" name="LAE_button">
        <property name="styleSheet">
         <string notr="true">color:rgb(0,0,0);
@@ -127,7 +116,7 @@ color: rgb(0, 0, 0);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="logoutButton">
     <property name="geometry">
      <rect>
       <x>460</x>

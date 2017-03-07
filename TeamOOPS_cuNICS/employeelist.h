@@ -20,6 +20,7 @@ public:
     ~EmployeeList();
 
     void callDisplay();
+private:
 
 private slots:
 

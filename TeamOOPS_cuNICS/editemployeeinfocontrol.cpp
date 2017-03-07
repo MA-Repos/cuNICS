@@ -1,7 +1,9 @@
 #include "editemployeeinfocontrol.h"
+#include "addroledialog.h"
 #include "employee.h"
 #include "constants.h"
 #include "employeeinfo.h"
+#include "status.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -27,18 +29,19 @@ int EditEmployeeInfoControl::getEmployeeInfo(int eid){
 }
 
 
+
 int EditEmployeeInfoControl::getEmployee(int employeeID)
 {
-    qDebug() << employeeID;
+    this->getRoles(employeeID);
 
+    QSqlQuery query;
+    QString queryString = "SELECT * "
+                          "FROM employee "
+                          "WHERE employeeid = (:employeeid)";
 
-        QString queryString = QString("SELECT * FROM employee WHERE employeeid = %1").arg(QString::number(employeeID));
-
-qDebug() << queryString;
-        //query.bindValue(":employeeID", QString::number(employeeID));
-
-
-        QSqlQuery query(queryString);
+    query.prepare(queryString);
+    query.bindValue(":employeeid", QString::number(employeeID));
+    query.exec();
     query.next();
 
     int indexEmployeeID =    query.record().indexOf("employeeid");
@@ -85,15 +88,23 @@ qDebug() << queryString;
                             phoneNumber,
                             address,
                             bankInformation,
-                            query.value(indexSinNumber).toInt());
+                            query.value(indexSinNumber).toInt(),
+                            roles);
 
-//    //TODO: call boundry
-   employeeInfo* eInfo = new employeeInfo(0,employee);
 
-   eInfo->displayEmployeeInfo();
-   eInfo->setModal(true);
-   eInfo->exec();
+
+     //TODO: call boundry
+    employeeInfo* eInfo = new employeeInfo(0,employee);
+
+    eInfo->displayEmployeeInfo();
+    eInfo->setModal(true);
+    eInfo->exec();
+    return 0;
+
+
 }
+
+
 
 void EditEmployeeInfoControl::updateFunctionCaller(Employee* eTemp){
     this->updateEmployeeInfo(eTemp);
@@ -101,7 +112,7 @@ void EditEmployeeInfoControl::updateFunctionCaller(Employee* eTemp){
 
 int EditEmployeeInfoControl::updateEmployeeInfo(Employee *employee)
 {
-    qDebug() << "CalledUpdate";
+
     int EmployeeID = employee->getEmployeeNumber();
     string FName = employee->getFName().toStdString();
     string LName = employee->getLName().toStdString();
@@ -139,34 +150,79 @@ int EditEmployeeInfoControl::updateEmployeeInfo(Employee *employee)
     QString sql = QString::fromStdString(sqlstr);
 
     QSqlQuery query(sql);
-    this->updateEmployeeRole(employee);
+
 
 
     return 0;
 }
 
 
-int EditEmployeeInfoControl::updateEmployeeRole(Employee *employee){
+int EditEmployeeInfoControl::updateEmployeeRole(Role* temprole,int ID){
 
-    int EmployeeID = employee->getEmployeeNumber();
-    int numRoles   = employee->getNumRoles();
+qDebug() << "CalledUpdate";
 
-    for (int i = 0; i < numRoles; i++){
+           QSqlQuery query;
+           QString queryString = "INSERT INTO employmentdetails "
+                                 "VALUES (:employeeID, "
+                                 "        :roleType, "
+                                 "        :employmentStatus, "
+                                 "        :employmentType, "
+                                 "        :startDate, "
+                                 "        :endDate, "
+                                 "        :salary, "
+                                 "        :deductionPercentage) ";
 
-        QString roletype =          employee->getRoleAtIndex(i)->getRole();
-        Status *status =            employee->getRoleAtIndex(i)->getStatus();
+           query.prepare(queryString);
+           query.bindValue(":employeeID",          QString::number(ID));
+           query.bindValue(":roleType",            temprole->getRole());
+           query.bindValue(":employmentStatus",    temprole->getStatus()->getEmploymentStatus());
+           query.bindValue(":employmentType",      temprole->getStatus()->getEmploymentType());
+           query.bindValue(":startDate",           temprole->getStatus()->getStartDate()->toString());
+           query.bindValue(":endDate",             temprole->getStatus()->getEndDate()->toString());
+           query.bindValue(":salary",              QString::number(temprole->getSalary()->getSalary()));
+           query.bindValue(":deductionPercentage", QString::number(temprole->getSalary()->getDeductionPercentage()));
+           query.exec();
 
-        QString employmentStatus =    status->getEmploymentStatus();
-        QString employmentType =      status->getEmploymentType();
+       return 0;
 
-        QString sql =  QString("UPDATE employmentdetails SET roletype= %1 ,employmentstatus= %2 , employmenttype= %3 where employeeid = %4").arg(roletype, employmentStatus,employmentType, QString::number(EmployeeID));
+}
 
-        QSqlQuery query(sql);
+int EditEmployeeInfoControl::getRoles(int employeeID)
+{
+    roles = new QList<Role*>();
+    QSqlQuery query;
 
+    QString queryString = "SELECT roletype, employmentstatus, employmenttype, deductionpercentage, salary "
+                          "FROM employmentdetails "
+                          "WHERE employeeid = (:employeeid)";
+
+    query.prepare(queryString);
+    query.bindValue(":employeeid", QString::number(employeeID));
+    query.exec();
+
+    int indexRoleType =            query.record().indexOf("roletype");
+    int indexEmploymentStatus =    query.record().indexOf("employmentstatus");
+    int indexEmploymentType =      query.record().indexOf("employmenttype");
+    int indexDeductionPercentage = query.record().indexOf("deductionpercentage");
+    int indexSalary =              query.record().indexOf("salary");
+
+    while(query.next()){
+
+        roles->append(new Role(
+                               query.value(indexRoleType).toString(),
+                               new Status(true,
+                                          query.value(indexEmploymentStatus).toString(),
+                                          query.value(indexEmploymentType).toString(),
+                                          NULL,
+                                          NULL
+                                          ),
+                               new Salary(query.value(indexSalary).toFloat(),
+                                          query.value(indexDeductionPercentage).toFloat())));
     }
-    return 0;
 
+    return 0;
 }
+
 
 
 

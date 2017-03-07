@@ -18,11 +18,9 @@ public:
 
 private slots:
 
-    void on_PRGT_button_2_clicked();
-
-    void on_EditEmpInfo_button_clicked();
-
     void on_LAE_button_clicked();
+
+    void on_logoutButton_clicked();
 
 private:
     Ui::payrollDialog *ui;

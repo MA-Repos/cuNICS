@@ -42,10 +42,12 @@ void EmployeeList::display_List(){
 
         QString name = (*i)->getFullName();
         int eID  = (*i)->getEmployeeNumber();
+
         const int currentRow2 =  ui->tableList->rowCount();
         ui->tableList->setRowCount(currentRow2 + 1);
         ui->tableList->setItem(currentRow2, 0, new QTableWidgetItem(QString::number(eID)));
         ui->tableList->setItem(currentRow2, 1, new QTableWidgetItem(name));
+
 
     }
 
@@ -61,5 +63,8 @@ void EmployeeList::on_tableList_cellDoubleClicked(int row, int column)
     eControl->getEmployeeInfo(eIDtemp);
 
 }
+
+
+
 
 

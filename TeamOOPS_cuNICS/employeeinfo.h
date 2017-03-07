@@ -19,15 +19,24 @@ public:
     ~employeeInfo();
 
         void displayEmployeeInfo();
-        void updateEmployeeInfo();
+        int updateEmployeeInfo();
+
 
 private slots:
 
         void on_updateButton_clicked();
 
+        void on_addButton_clicked();
+
+        void on_deleteButton_clicked();
+
 private:
     Ui::employeeInfo *ui;
     Employee* employee;
+    double computeTotalSalary(Employee*);
+    QString getRolesString(Employee*);
+    Role* newRole;
+
 };
 
 #endif // EMPLOYEEINFO_H

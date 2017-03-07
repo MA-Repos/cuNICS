@@ -6,11 +6,8 @@
 #include "address.h"
 #include "bankinformation.h"
 #include "role.h"
-#include "paystub.h"
 #include <qlist.h>
 #include <QMap>
-
-class Paystub;
 
 class Employee : public User
 {
@@ -21,26 +18,24 @@ private:
     BankInformation*    bankInformation;
     QList<Role*>*       roles;
     int                 sin;
-    QList<Paystub*>*    paystubs;
 
 public:
-    Employee(QString             fName,
-             QString             lName,
+    Employee(QString            fName,
+             QString            lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,
              BankInformation*   bankInformation,
              int                sin);
 
-    Employee(QString             fName,
-             QString             lName,
+    Employee(QString            fName,
+             QString            lName,
              int                employeeNumber,
              PhoneNumber*       phoneNumber,
              Address*           address,
              BankInformation*   bankInformation,
              int                sin,
-             QList<Role*>*      roles,
-             QList<Paystub*>*   paystubs);
+             QList<Role*>*      roles);
     ~Employee();
 
     //----- Getters -----
@@ -54,13 +49,8 @@ public:
     int         getNumRoles();
     Role*       getRoleAtIndex(int i);
     bool        addRole(Role* newRole);
+    bool        removeRole(QString roleType);
 
-    //----- Paystub Methods -----
-    int         getNumStubs();
-    Paystub*    getLastPaystub();
-    Paystub*    getPaystubAtIndex(int i);
-    bool        addPaystub(Paystub* newStub);
-    bool        toAttributeList(QMap<QString, QString> *list);
     QString     toQString();
 };
 

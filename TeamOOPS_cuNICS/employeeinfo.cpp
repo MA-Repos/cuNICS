@@ -5,6 +5,9 @@
 #include "phonenumber.h"
 #include "bankinformation.h"
 #include "editemployeeinfocontrol.h"
+
+#include "addroledialog.h"
+#include "addroledialog.h"
 #include "salary.h"
 #include "status.h"
 #include "role.h"
@@ -15,6 +18,7 @@ employeeInfo::employeeInfo(QWidget *parent,Employee* tempE):
 {
     ui->setupUi(this);
     this->employee = tempE;
+
 }
 
 employeeInfo::~employeeInfo()
@@ -120,6 +124,11 @@ void employeeInfo::displayEmployeeInfo()
 
     }
 
+     //SetTotalSalary
+     double totalSalary = computeTotalSalary(this->employee);
+     ui->label_salary->setText(QString::number(totalSalary));
+
+
 
 }
 
@@ -202,7 +211,55 @@ int employeeInfo::updateEmployeeInfo(){
 
 void employeeInfo::on_updateButton_clicked()
 {
-    this->updateEmployeeInfo();
-    if()
-    close();
+
+    if(this->updateEmployeeInfo())
+        close();
+}
+
+QString employeeInfo::getRolesString(Employee* emp) {
+
+    int numRoles=0;
+        numRoles= emp->getNumRoles();
+    qDebug() << "NumRoles " +numRoles;
+    QString roles = "";
+    for(int i=0; i< numRoles; i++){
+        Role* role = emp->getRoleAtIndex(i);
+        roles += role->getRole()+",";
+
+    }
+    return roles;
+
+}
+
+double employeeInfo::computeTotalSalary(Employee* employee){
+
+    int numberOfRole = employee->getNumRoles();
+    double totalSalary = 0.0;
+    for(int i= 0; i< numberOfRole ; i++){
+        Role* role = employee->getRoleAtIndex(i);
+        totalSalary += role->getSalary()->getSalaryAfterDeduction();
+    }
+
+    return totalSalary;
+}
+
+void employeeInfo::on_addButton_clicked()
+{
+    addRoleDialog* addRoleD = new addRoleDialog(this,newRole);
+    addRoleD->setModal(true);
+    addRoleD->exec();
+    qDebug()<< "NewRole" +newRole->getRole();
+    EditEmployeeInfoControl* eControl = new EditEmployeeInfoControl();
+    eControl->updateEmployeeRole(newRole,employee->getEmployeeNumber());
+}
+
+void employeeInfo::on_deleteButton_clicked()
+{
+    int currentrow =  ui->rolesTable->currentRow();
+    QTableWidgetItem *itab =  ui->rolesTable->item(currentrow,0);
+    QString itabtext = itab->text();
+
+    //this->employee->removeRole(itabtext);
+    ui->rolesTable->removeRow(currentrow);
+
 }

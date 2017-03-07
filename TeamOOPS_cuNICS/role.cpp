@@ -18,6 +18,21 @@ Role::Role(RoleType roleType, Status* status, Salary* salary)
     this->salary    = salary;
 }
 
+Role::Role(QString roleType, Status* status, Salary* salary)
+{
+        if (roleType == "TA")
+            this->roleType = TA;
+        else if (roleType == "RA")
+            this->roleType = RA;
+        else if (roleType == "Faculty")
+            this->roleType = FACULTY;
+        else
+            this->roleType = STAFF;
+
+    this->status    = status;
+    this->salary    = salary;
+}
+
 Role::~Role()
 {
     if (status != NULL) {
@@ -40,13 +55,18 @@ QString Role::getRole()
             return "Staff";
 
         default:
-        return "No Role";
+            return NULL;
     }
 }
 
 Status* Role::getStatus()
 {
     return status;
+}
+
+Salary* Role::getSalary()
+{
+    return salary;
 }
 
 //----- Setters -----
@@ -104,4 +124,13 @@ bool Role::setRollContinuingFullTime(RoleType roleType, Date* startDate)
         }
     }
     return false;
+}
+
+QString Role::toString()
+{
+    return this->getRole() + "  " +
+           this->getStatus()->getEmploymentType() + "  " +
+           this->getStatus()->getEmploymentStatus() + "  " +
+           QString::number(this->getSalary()->getSalary()) + "  " +
+           QString::number(this->getSalary()->getDeductionPercentage());
 }
